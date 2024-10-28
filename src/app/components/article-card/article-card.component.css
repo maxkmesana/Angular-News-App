@@ -13,11 +13,21 @@
   margin-bottom: 5px;
 }
 
-.icon{
+.icon-not-fav{
   float: right;
+  color: black;
 }
 
-.icon:hover{
+.icon-fav{
+  float: right;
+  color: yellow;
+}
+
+.icon-not-fav:hover{
+  color: #ff5722;
+}
+
+.icon-fav:hover{
   color: #ff5722;
 }
 

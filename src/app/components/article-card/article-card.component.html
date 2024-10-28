@@ -8,7 +8,12 @@
     <mat-card-content>
         <div class="subtitle-icon-container">
           <mat-card-subtitle class="subtitle">{{article.source.name}}</mat-card-subtitle>
-          <mat-icon class="icon">bookmark</mat-icon>
+          @if (article.isFavorite) {
+            <mat-icon class="icon-fav" (click)="handleFavClick(article)">bookmark</mat-icon>
+          }
+          @else{
+            <mat-icon class="icon-not-fav" (click)="handleFavClick(article)">bookmark</mat-icon>
+          }
         </div>
       <a class="title" href={{article.url}}><mat-card-title>{{article.title}}</mat-card-title></a>
       <!-- <p>

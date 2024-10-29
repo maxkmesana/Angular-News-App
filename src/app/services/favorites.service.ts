@@ -1,46 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from '../interfaces/user.interface';
 import { Favorite } from '../interfaces/favorite.interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class MainServiceService {
+export class MainService {
   private http = inject(HttpClient);
   
-  private JSON_SERVER_URL: String = "http://localhost:300";
-  private NEWS_API_KEY: String = "" // FROM .env ONLY
-  private NEWS_API_URL: String = "https://newsapi.org/v2/everything"
-  
+  private JSON_SERVER_URL: String = "http://localhost:300";  
 
   constructor() { }
 
   // TODO: handle errors within each request
   
-  // Users requests
-  getUsers(): Observable<User[]>{
-    return this.http.get<User[]>(`${this.JSON_SERVER_URL}/users`);
-  }
-
-  getUserById(id: String): Observable<User>{
-    return this.http.get<User>(`${this.JSON_SERVER_URL}/users/${id}`);
-  }
-
-  deleteUser(id: String): Observable<User>{
-    return this.http.delete<User>(`${this.JSON_SERVER_URL}/users/${id}`);
-  }
-
-  postUser(user: User): Observable<User>{
-    return this.http.post<User>(`${this.JSON_SERVER_URL}/users`, user);
-  }
-
-  putUser(id: String, user: User): Observable<User>{
-    return this.http.post<User>(`${this.JSON_SERVER_URL}/users/${id}`, user);
-  }
-
-  // Favorites requests
   getFavorites(): Observable<Favorite[]>{
     return this.http.get<Favorite[]>(`${this.JSON_SERVER_URL}/favorites`);
   }
@@ -60,6 +34,4 @@ export class MainServiceService {
   putFavorite(id: String, favorite: Favorite): Observable<Favorite>{
     return this.http.put<Favorite>(`${this.JSON_SERVER_URL}/favorites/${id}`, favorite);
   }
-  
-  // News API (might be part of a different service)
 }

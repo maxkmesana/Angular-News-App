@@ -8,7 +8,7 @@ import { Article } from '../interfaces/article.interface';
 })
 export class NewsApiService {
   private httpNews = inject(HttpClient);
-  private NEWS_API_KEY: String = "2245e144f62b4ff39bc634583a13a39e"
+  private NEWS_API_KEY: String = "" // .env ONLY!!
   private NEWS_API_URL: String = "https://newsapi.org/v2/everything"
 
   constructor() { }

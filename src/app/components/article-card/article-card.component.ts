@@ -15,9 +15,10 @@ import { MatIcon } from '@angular/material/icon';
 })
 export class ArticleCardComponent implements OnInit{
   
-  @Input() article!: Article;
+  // @Input() article!: Article;
 
-  testArticle: Article = {
+  
+  article: Article = {
     "source": {
         "id": null,
         "name": "Hipertextual"
@@ -31,6 +32,7 @@ export class ArticleCardComponent implements OnInit{
     "content": "Los televisores de Samsung que usan Tizen como sistema operativo han comenzado a actualizarse a One UI. De esta manera, los coreanos pretenden unificar la experiencia de software entre estos disposit… [+2142 chars]"
   }
 
+  
   ngOnInit(): void {
     this.article.isFavorite = false;
   }

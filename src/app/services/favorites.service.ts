@@ -6,7 +6,7 @@ import { Favorite } from '../interfaces/favorite.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class MainService {
+export class FavoriteService {
   private http = inject(HttpClient);
   
   private JSON_SERVER_URL: String = "http://localhost:300";  

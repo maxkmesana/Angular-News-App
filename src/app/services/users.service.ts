@@ -7,7 +7,7 @@ import { User } from '../interfaces/user.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class MainServiceService {
+export class UserService {
   private http = inject(HttpClient);
   
   private JSON_SERVER_URL: String = "http://localhost:300";  

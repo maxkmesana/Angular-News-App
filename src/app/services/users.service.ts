@@ -26,8 +26,6 @@ export class UserService implements OnInit{
     this.loggedUserId.next(userId);
   }
 
-  
-
   // TODO: handle errors within each request
   
   getUsers(): Observable<User[]>{

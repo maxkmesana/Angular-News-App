@@ -49,6 +49,7 @@ export class ArticleCardComponent implements OnInit{
       this.service.deleteFavorite(this.article.url).subscribe();
     }
     if(article?.isFavorite === false){
+      article.userId = this.userId;
       this.service.postFavorite(article).subscribe();
     }
     this.article.isFavorite = !this.article.isFavorite

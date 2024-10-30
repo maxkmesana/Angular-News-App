@@ -70,4 +70,8 @@ export class ArticleCardComponent implements OnInit{
     this.article.isFavorite = !this.article.isFavorite
   }
 
+  descriptionText(){
+  return this.article.description.slice(0,100);
+  }
+
 }

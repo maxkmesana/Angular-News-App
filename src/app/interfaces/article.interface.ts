@@ -1,4 +1,6 @@
 export interface Article {
+    id?: string,
+    userId: string,
     source: {
         id: string | null;
         name: string;

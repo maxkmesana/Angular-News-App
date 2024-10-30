@@ -1,18 +1,32 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { inject, Injectable, OnInit } from '@angular/core';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { User } from '../interfaces/user.interface';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class UserService implements OnInit{
+
+  ngOnInit(): void {
+  }
+
   private http = inject(HttpClient);
   
-  private JSON_SERVER_URL: String = "http://localhost:300";  
+  private JSON_SERVER_URL: String = "http://localhost:3000";  
 
   constructor() { }
+
+  private loggedUserId = new BehaviorSubject<string>("3"); // FIXME: SACAR ESE TRES PORQUE ES DE TESTEOOOO
+  loggedUserId$ = this.loggedUserId.asObservable();
+
+
+  setLoggedUserId(userId: string){
+    this.loggedUserId.next(userId);
+  }
+
+  
 
   // TODO: handle errors within each request
   

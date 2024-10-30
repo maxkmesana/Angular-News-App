@@ -1,9 +1,12 @@
-import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, Input, OnInit} from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {Article} from "../../interfaces/article.interface"
 import { RouterLink } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
+import { FavoriteService } from '../../services/favorites.service';
+import { Subscription } from 'rxjs';
+import { UserService } from '../../services/users.service';
 
 @Component({
   selector: 'app-article-card',
@@ -17,8 +20,21 @@ export class ArticleCardComponent implements OnInit{
   
   // @Input() article!: Article;
 
+  service: FavoriteService = inject(FavoriteService);
+  userId: string  = '';
+  subscription: Subscription
+
+
+  
+  constructor(private userService: UserService) {
+    this.subscription = this.userService.loggedUserId$.subscribe(data => {
+      this.userId = data;
+    });
+  }
+  
   
   article: Article = {
+    "userId": "3", 
     "source": {
         "id": null,
         "name": "Hipertextual"
@@ -34,11 +50,24 @@ export class ArticleCardComponent implements OnInit{
 
   
   ngOnInit(): void {
-    this.article.isFavorite = false;
+    this.article.isFavorite = false; // FIXME: esto no deberia siempre ser false. Deberia venir desde el articulo
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   handleFavClick(article: Article){
-    this.article.isFavorite = !this.article.isFavorite;
+    if(this.userId == null){
+      throw new Error("article-card.handleFavClick(): userId cannot be null.")
+    }
+    if(article?.isFavorite === true){
+      this.service.deleteFavorite(this.article.url).subscribe();
+    }
+    if(article?.isFavorite === false){
+      this.service.postFavorite(article).subscribe();
+    }
+    this.article.isFavorite = !this.article.isFavorite
   }
 
 }

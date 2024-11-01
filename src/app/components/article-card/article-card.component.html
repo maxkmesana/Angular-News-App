@@ -1,24 +1,17 @@
-<mat-card class="example-card" appearance="outlined">
-    <!-- <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header> -->
-    <img mat-card-image src={{article.urlToImage}} alt="Photo of a Shiba Inu">
-    <mat-card-content>
-        <div class="subtitle-icon-container">
-          <mat-card-subtitle class="subtitle">{{article.source.name}}</mat-card-subtitle>
-          @if (article.isFavorite) {
-            <mat-icon class="icon-fav" (click)="handleFavClick(article)">bookmark</mat-icon>
-          }
-          @else{
-            <mat-icon class="icon-not-fav" (click)="handleFavClick(article)">bookmark</mat-icon>
-          }
-        </div>
-      <a class="title" href={{article.url}}><mat-card-title>{{article.title}}</mat-card-title></a>
-      <!-- <p>
-        {{article.description}}
-      </p> -->
-    </mat-card-content>
-  </mat-card>
-  
+<div class="card-container">
+<div class="card">
+  <img src={{article.urlToImage}} alt={{article.title}}>
+  <div class="card-content">
+  <p class="subtitle">{{article.source.name}} </p>
+  @if (article.isFavorite) {
+    <mat-icon class="icon-fav" (click)="handleFavClick(article)">bookmark</mat-icon>
+  }
+  @else{
+    <mat-icon class="icon-not-fav" (click)="handleFavClick(article)">bookmark</mat-icon>
+  }
+  <a class="title" href={{article.url}}>{{article.title}}</a>
+  <p class="description"> {{descriptionText()}}</p>
+</div>
+</div>
+
+</div>

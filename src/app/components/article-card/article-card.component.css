@@ -1,41 +1,76 @@
-.example-card {
-    max-width: 300px;
+
+
+.card-container{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 100px;
 }
 
-.subtitle-icon-container{
-  height: 15px;
-  margin: 10px 0 18px 0;
+.card{
+  width: 376px;
+  border-radius: 0px;
+  overflow: hidden;
+  margin: 20px;
+  padding: 0px;
 }
 
-.subtitle{
+.card img{
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 9px;
+  margin-bottom: 20px;
+}
+
+.card-content a.title{
+  font-size: 30px;
+  display: inline-block;
+  padding: 15px 0px;
+  margin-top: 5px;
+  margin-bottom: 3px;
+  color: inherit;
+  text-decoration: none;
+  color: #424141;
+}
+
+.card-content a.title:hover{
+text-decoration:underline;
+}
+
+.card-content p.subtitle{
+  color:rgb(77, 77, 72);
+  line-height: 1.0;
+  font-size: 20px;
+  padding: 15px 0px;
+  margin-bottom: 10px;
   display: inline;
+}
+
+
+.card-content p.description{
+  color:rgb(77, 77, 72);
+  font-size: 20px;
+  padding: 15px 0px;
   margin-top: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  display: inline;
+  text-align: justify;
 }
 
 .icon-not-fav{
-  float: right;
-  color: black;
+float: right;
+color: rgb(199, 199, 199);
 }
 
 .icon-fav{
-  float: right;
-  color: yellow;
+float: right;
+color: rgb(44, 44, 44);
 }
 
 .icon-not-fav:hover{
-  color: #ff5722;
+color: #8a8a8a;
 }
 
 .icon-fav:hover{
-  color: #ff5722;
+color: #8a8a8a;
 }
 
-.title{
-  color: inherit;
-  text-decoration: none;
-}
-
-.title:hover{
-  text-decoration: underline;
-}

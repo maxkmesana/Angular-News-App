@@ -4,66 +4,76 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: 100px;
+  justify-content: space-between; 
 }
 
 .card{
   width: 376px;
-  border-radius: 0px;
+  border-radius: 9px;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   margin: 20px;
-  padding: 0px;
+  padding: 10px;  
 }
 
-.card img{
-  max-width: 100%;
-  max-height: 100%;
+
+.card .image-container{
+  height: 235px;
+  width: 376px;
+  overflow: hidden;
   border-radius: 9px;
-  margin-bottom: 20px;
+  margin-bottom: 7px;
+}
+.card .image-container img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.card-content a.title{
-  font-size: 30px;
-  display: inline-block;
-  padding: 15px 0px;
+.card-content .title-container{
+  height: 163px;
+  overflow: hidden;
+  display: block;
+  padding: 5px 0px;
   margin-top: 5px;
-  margin-bottom: 3px;
+  margin-bottom: 15px;
+  
+}
+
+.card-content .title-container a.title{
+  font-size: 32px;
   color: inherit;
   text-decoration: none;
-  color: #424141;
+  color: #2E2E2E;
 }
 
-.card-content a.title:hover{
+.card-content .title-container a.title:hover{
 text-decoration:underline;
 }
 
 .card-content p.subtitle{
   color:rgb(77, 77, 72);
   line-height: 1.0;
-  font-size: 20px;
-  padding: 15px 0px;
+  font-size: 24px;
+  padding: 5px 0px;
   margin-bottom: 10px;
-  display: inline;
+  display: inline-block;
 }
 
-
-.card-content p.description{
-  color:rgb(77, 77, 72);
-  font-size: 20px;
-  padding: 15px 0px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  display: inline;
-  text-align: justify;
-}
 
 .icon-not-fav{
+margin-top: 20px;
 float: right;
 color: rgb(199, 199, 199);
+display: inline;
 }
 
 .icon-fav{
+  margin-top: 20px;
 float: right;
 color: rgb(44, 44, 44);
+display: inline;
 }
 
 .icon-not-fav:hover{

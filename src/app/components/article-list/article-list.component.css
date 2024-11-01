@@ -9,5 +9,6 @@
 .articles-container{
     display: flex;
     flex-wrap: wrap;
-    margin:auto;
+    margin: 60px;
+    justify-content: center;
 }

@@ -22,7 +22,7 @@ export class LandingComponent implements OnInit {
   newsListing(){
     this.newService.getMainNews().subscribe({
       next: (response) => {
-        this.newsArray = response;
+        this.newsArray = response.articles;
       },
       error: (err) => {
         if(err.status === '404'){

@@ -9,6 +9,7 @@
 .articles-container{
     display: flex;
     flex-wrap: wrap;
-    margin: 60px;
+    margin: 80px;
     justify-content: center;
+    background-color: #F5F5F5;
 }

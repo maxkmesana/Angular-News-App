@@ -5,12 +5,12 @@ import { Router } from '@angular/router';
 import { UserService } from '../../services/users.service';
 import { NewsApiService } from '../../services/news-api.service';
 import { ApiResponse } from '../../interfaces/response.interface';
-import { ArticleCardComponent } from '../article-card/article-card.component';
+import { FavoriteCardComponent } from "../favorite-card/favorite-card.component";
 
 @Component({
   selector: 'app-my-news',
   standalone: true,
-  imports: [ArticleCardComponent],
+  imports: [FavoriteCardComponent, FavoriteCardComponent],
   templateUrl: './my-news.component.html',
   styleUrl: './my-news.component.css'
 })

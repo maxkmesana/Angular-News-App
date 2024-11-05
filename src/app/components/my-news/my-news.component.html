@@ -1,1 +1,7 @@
-<p>my-news works!</p>
+
+<div class="cards-container">
+    @for (article of articles; track $index) {
+        <app-favorite-card [article]="article" />
+    }
+</div>
+

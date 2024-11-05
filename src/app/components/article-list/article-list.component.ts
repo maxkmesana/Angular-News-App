@@ -1,5 +1,4 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { environment } from '../../../environments/environment';
 import { Article } from '../../interfaces/article.interface';
 import { NewsApiService } from '../../services/news-api.service';
 import { ArticleCardComponent } from "../article-card/article-card.component";

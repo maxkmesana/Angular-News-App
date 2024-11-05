@@ -3,24 +3,22 @@
 .card-container{
   display: flex;
   flex-wrap: wrap;
-  margin-top: 100px;
   justify-content: space-between; 
 }
 
 .card{
-  width: 376px;
-  border-radius: 9px;
+  width: 250px;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   margin: 20px;
-  padding: 10px;  
+  padding: 10px;
 }
 
 
 .card .image-container{
-  height: 235px;
-  width: 376px;
+  width: 250px;
+  height: 160px;
   overflow: hidden;
   border-radius: 9px;
   margin-bottom: 7px;
@@ -32,7 +30,7 @@
 }
 
 .card-content .title-container{
-  height: 163px;
+  height: 100px;
   overflow: hidden;
   display: block;
   padding: 5px 0px;
@@ -42,10 +40,10 @@
 }
 
 .card-content .title-container a.title{
-  font-size: 32px;
-  color: inherit;
+  font-size: 20px;
   text-decoration: none;
   color: #2E2E2E;
+  text-align: center;
 }
 
 .card-content .title-container a.title:hover{
@@ -55,7 +53,7 @@ text-decoration:underline;
 .card-content p.subtitle{
   color:rgb(77, 77, 72);
   line-height: 1.0;
-  font-size: 24px;
+  font-size: 17px;
   padding: 5px 0px;
   margin-bottom: 10px;
   display: inline-block;
@@ -65,12 +63,12 @@ text-decoration:underline;
 .icon-not-fav{
 margin-top: 20px;
 float: right;
-color: rgb(199, 199, 199);
+color: rgb(221, 221, 221);
 display: inline;
 }
 
 .icon-fav{
-  margin-top: 20px;
+margin-top: 20px;
 float: right;
 color: rgb(44, 44, 44);
 display: inline;
@@ -80,7 +78,5 @@ display: inline;
 color: #8a8a8a;
 }
 
-.icon-fav:hover{
-color: #8a8a8a;
-}
+
 

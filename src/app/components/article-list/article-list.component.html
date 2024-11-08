@@ -1,8 +1,5 @@
-
-    <div class="cards-container">
-    @for (article of articles; track $index) {
-        <app-article-card [article]="article" />
-    }
+<div class="cards-container">
+  @for (article of articles; track $index) {
+  <app-article-card (navigateEvent)="onNavigate($event)" [article]="article" />
+  }
 </div>
-
-

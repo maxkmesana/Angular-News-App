@@ -1,32 +1,19 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  inject,
-  Input,
-  OnInit,
-  Output,
-} from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { Article } from '../../interfaces/article.interface';
-import { RouterLink } from '@angular/router';
-import { MatIcon } from '@angular/material/icon';
+import { Component, inject, Input } from '@angular/core';
 import { FavoriteService } from '../../services/favorites.service';
 import { Subscription } from 'rxjs';
 import { UserService } from '../../services/users.service';
+import { Article } from '../../interfaces/article.interface';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-article-card',
+  selector: 'app-article-content',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, MatIcon],
-  templateUrl: './article-card.component.html',
-  styleUrl: './article-card.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [MatIcon],
+  templateUrl: './article-content.component.html',
+  styleUrl: './article-content.component.css',
 })
-export class ArticleCardComponent implements OnInit {
+export class ArticleContentComponent {
   @Input() article!: Article;
-  @Output() navigateEvent = new EventEmitter<string>();
 
   service: FavoriteService = inject(FavoriteService);
   userId: string = '';
@@ -58,9 +45,5 @@ export class ArticleCardComponent implements OnInit {
       this.service.postFavorite(article).subscribe();
     }
     this.article.isFavorite = !this.article.isFavorite;
-  }
-
-  onNavigate() {
-    this.navigateEvent.emit(this.article.title);
   }
 }

@@ -1,12 +1,10 @@
-
-
-.card-container{
+.card-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 
-.card{
+.card {
   width: 250px;
   align-items: center;
   justify-content: center;
@@ -15,68 +13,62 @@
   padding: 10px;
 }
 
-
-.card .image-container{
+.card .image-container {
   width: 250px;
   height: 160px;
   overflow: hidden;
   border-radius: 9px;
   margin-bottom: 7px;
 }
-.card .image-container img{
+.card .image-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.card-content .title-container{
+.card-content .title-container {
   height: 100px;
   overflow: hidden;
   display: block;
   padding: 5px 0px;
   margin-top: 5px;
   margin-bottom: 15px;
-  
 }
 
-.card-content .title-container a.title{
+.card-content .title-container a.title {
   font-size: 20px;
   text-decoration: none;
-  color: #2E2E2E;
+  color: #2e2e2e;
   text-align: center;
 }
 
-.card-content .title-container a.title:hover{
-text-decoration:underline;
+.card-content .title-container a.title:hover {
+  text-decoration: underline;
 }
 
-.card-content p.subtitle{
-  color:rgb(77, 77, 72);
-  line-height: 1.0;
+.card-content p.subtitle {
+  color: rgb(77, 77, 72);
+  line-height: 1;
   font-size: 17px;
   padding: 5px 0px;
   margin-bottom: 10px;
   display: inline-block;
 }
 
-
-.icon-not-fav{
-margin-top: 20px;
-float: right;
-color: rgb(221, 221, 221);
-display: inline;
+.icon-not-fav {
+  margin-top: 20px;
+  float: right;
+  color: rgb(201, 201, 201);
+  display: inline;
 }
 
-.icon-fav{
-margin-top: 20px;
-float: right;
-color: rgb(44, 44, 44);
-display: inline;
+.icon-fav {
+  margin-top: 20px;
+  float: right;
+  color: rgb(44, 44, 44);
+  display: inline;
 }
 
-.icon-not-fav:hover{
-color: #8a8a8a;
+.icon-not-fav:hover {
+  color: #8a8a8a;
 }
-
-
-

@@ -1,0 +1,37 @@
+.article-container {
+  background-color: aqua;
+}
+
+.article-header-container {
+  background-color: bisque;
+}
+
+.title {
+  background-color: yellow;
+}
+
+.description {
+  background-color: blue;
+}
+
+.date {
+  background-color: rgb(219, 97, 97);
+}
+
+.icon-not-fav {
+  margin-top: 20px;
+  float: right;
+  color: rgb(201, 201, 201);
+  display: inline;
+}
+
+.icon-fav {
+  margin-top: 20px;
+  float: right;
+  color: rgb(44, 44, 44);
+  display: inline;
+}
+
+.icon-not-fav:hover {
+  color: #8a8a8a;
+}

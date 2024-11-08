@@ -1,7 +1,5 @@
-
 <div class="cards-container">
-    @for (article of articles; track $index) {
-        <app-favorite-card [article]="article" />
-    }
+  @for (article of articles; track $index) {
+  <app-favorite-card (navigateEvent)="onNavigate($event)" [article]="article" />
+  }
 </div>
-

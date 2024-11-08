@@ -28,7 +28,6 @@ export class ArticleListComponent implements OnInit {
   }
 
   onNavigate(title: string) {
-    console.log(title);
     this.router.navigate([`article/${title}`]);
   }
 }

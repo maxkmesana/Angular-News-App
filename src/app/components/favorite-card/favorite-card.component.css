@@ -41,13 +41,13 @@
   height: 90%;
 }
 
-.card-content .title-container a.title {
+.card-content .title-container p.title {
   font-size: larger;
   text-decoration: none;
   color: #2e2e2e;
 }
 
-.card-content .title-container a.title:hover {
+.card-content .title-container p.title:hover {
   text-decoration: underline;
 }
 

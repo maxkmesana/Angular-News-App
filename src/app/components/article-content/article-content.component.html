@@ -12,15 +12,17 @@
     <div class="title">
       <h1>{{ article.title }}</h1>
     </div>
-    <div class="description">
-      <p>{{ article.description }}</p>
-    </div>
     <div class="date">
       <p>{{ article.publishedAt }}</p>
+    </div>
+    <div class="description">
+      <p>{{ article.description }}</p>
     </div>
   </div>
   <div class="image-container">
     <img src="{{ article?.urlToImage }}" alt="{{ article?.title }}" />
   </div>
-  <div></div>
+  <div class="content">
+    {{ article.content }}
+  </div>
 </div>

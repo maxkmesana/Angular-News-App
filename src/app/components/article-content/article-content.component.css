@@ -1,21 +1,51 @@
 .article-container {
-  background-color: aqua;
-}
-
-.article-header-container {
-  background-color: bisque;
+  justify-self: center;
+  display: flexbox;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+  margin: 300px 30px 30px 30px;
+  padding: 50px;
 }
 
 .title {
-  background-color: yellow;
+  margin-bottom: 50px;
+}
+.title h1 {
+  font-size: 50px;
 }
 
+.image-container {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 9px;
+  margin-bottom: 50px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .description {
-  background-color: blue;
+  margin-bottom: 50px;
+}
+
+.description p {
+  font-size: 20px;
 }
 
 .date {
-  background-color: rgb(219, 97, 97);
+  margin-bottom: 80px;
+}
+
+.date p {
+  font-size: 20px;
+}
+
+.content {
+  font-size: 20px;
 }
 
 .icon-not-fav {

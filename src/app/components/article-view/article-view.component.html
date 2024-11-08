@@ -1,3 +1,5 @@
-@if(article){ }@else {
+@if(article){
+<app-article-content [article]="article" />
+}@else {
 <p>Lo sentimos, tuvimos un problema al cargar el artículo</p>
 }

@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, HostListener, inject, OnInit } from '@angular/core';
 import { Article } from '../../interfaces/article.interface';
 import { NewsApiService } from '../../services/news-api.service';
 import { ArticleCardComponent } from '../article-card/article-card.component';
@@ -6,7 +6,6 @@ import { ApiResponse } from '../../interfaces/response.interface';
 import { FavoriteService } from '../../services/favorites.service';
 import { UserService } from '../../services/users.service';
 import { Subscription, switchMap } from 'rxjs';
-import { E } from '@angular/cdk/keycodes';
 import { Router } from '@angular/router';
 
 @Component({
@@ -22,9 +21,13 @@ export class ArticleListComponent implements OnInit {
   router: Router = inject(Router);
 
   articles: Article[] = [];
-
+  currentPage = 1;
+  loading = false;
+  pageSize = 12;
+  totalArticles = 0;
   userId: string = '';
   subscription: Subscription;
+
 
   constructor(private userService: UserService) {
     this.subscription = this.userService.loggedUserId$.subscribe((data) => {
@@ -48,7 +51,45 @@ export class ArticleListComponent implements OnInit {
       });
   }
 
+  
   onNavigate(title: string) {
     this.router.navigate([`article/${title}`]);
+  }
+
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll(): void {
+    // Check if we're near bottom of page
+    if ((window.innerHeight + window.scrollY) >= 
+        (document.documentElement.scrollHeight - 200)) {
+      this.loadMoreArticles();
+    }
+  }
+  
+  loadMoreArticles() {
+    if (this.loading || (this.totalArticles > 0 && this.articles.length >= this.totalArticles)) return;
+    
+    this.loading = true;
+    this.newsApiService
+      .getMainNews(this.currentPage, this.pageSize)
+      .pipe(
+        switchMap((response: ApiResponse) => {
+          this.totalArticles = response.totalResults;
+          // Pass only the new articles to be marked
+          return this.favoriteService.markUserFavorites(response.articles, this.userId)
+        })
+      )
+      .subscribe({
+        next: (markedArticles) => {
+          // Append the new marked articles to the existing array
+          this.articles = [...this.articles, ...markedArticles];
+          this.currentPage++;
+          this.loading = false;
+        },
+        error: (error) => {
+          console.error('Error loading articles:', error);
+          this.loading = false;
+        }
+      });
   }
 }

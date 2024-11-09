@@ -10,14 +10,13 @@ import { ApiResponse } from '../interfaces/response.interface';
 })
 export class NewsApiService {
   private httpNews = inject(HttpClient);
-  private NEWS_API_KEY: String = "" // .env ONLY!!
   private NEWS_API_URL: String = "https://newsapi.org/v2/everything"
 
   constructor() { }
 
   // this request is made only for development.
   // TODO: Decide the specific parameters of the request and whether we should add other requests
-  getMainNews(): Observable<ApiResponse> {
-    return this.httpNews.get<ApiResponse>(`${this.NEWS_API_URL}?q=software&domains=xataca.com,hipertextual.com&apiKey=${environment.apiKey}`)
+  getMainNews(page: number = 1, pageSize: number = 12): Observable<ApiResponse> {
+    return this.httpNews.get<ApiResponse>(`${this.NEWS_API_URL}?q=software&domains=xataca.com,hipertextual.com&apiKey=${environment.apiKey}&page=${page}&pageSize=${pageSize}`)
   }
 }

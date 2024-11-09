@@ -1,6 +1,13 @@
-
 <div class="cards-container">
-    @for (article of articles; track $index) {
-        <app-article-card [article]="article" [userId]="userId" (navigateEvent)="onNavigate($event)"/>
-    }
-</div>
+      @for (article of articles; track $index) {
+        <app-article-card 
+          [article]="article" 
+          [userId]="userId" 
+          (navigateEvent)="onNavigate($event)"
+        />
+      }
+      
+      @if (loading) {
+        <div class="loading-spinner">Loading...</div>
+      }
+    </div>

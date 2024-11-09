@@ -7,7 +7,7 @@
 }
 
 .card {
-  width: 60%;
+  width: 80%;
   height: 276px;
   background-color: rgba(240, 248, 255, 0.622);
   display: flex;
@@ -44,6 +44,32 @@
   padding: 0%;
 }
 
+.icon-not-fav {
+  margin-top: 20px;
+  float: right;
+  color: rgb(139, 139, 139);
+  display: inline;
+  cursor: pointer;
+}
+
+.icon-fav {
+  margin-top: 20px;
+  float: right;
+  color: rgb(0, 0, 0);
+  display: inline;
+  cursor: pointer;
+}
+
+.icon-not-fav:hover {
+  color: #202020;
+  cursor: pointer;
+}
+
+.icon-fav:hover {
+  color: #585858;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 968px) {
   .card {
     width: 80%;
@@ -61,6 +87,7 @@
   }
 
   .card-content {
+    display: flexbox;
     width: 100%;
     height: auto;
     float: none;
@@ -72,34 +99,14 @@
     max-height: 200px;
     margin-bottom: 15px;
   }
-}
-
-/* Media Queries para pantallas pequeñas */
-@media screen and (max-width: 480px) {
-  .card-container {
-    margin: 1%;
+  .fav-button {
+    width: 100%;
+    display: block;
   }
-
-  .card {
-    width: 95%;
-    padding: 10px;
-  }
-
-  .card .image-container {
-    height: 180px;
-    margin-bottom: 15px;
-  }
-
-  .card-content .title-container p.title {
-    font-size: medium;
-  }
-
-  .card-content p.subtitle {
-    font-size: 15px;
-  }
-
   .icon-not-fav,
   .icon-fav {
     margin-right: 10px;
+    float: right;
+    display: inline;
   }
 }

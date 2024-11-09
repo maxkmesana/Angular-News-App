@@ -2,22 +2,6 @@
   "users": [],
   "favorites": [
     {
-      "id": "dfa3",
-      "source": {
-        "id": null,
-        "name": "Hipertextual"
-      },
-      "author": "Gabriel Erard",
-      "title": "¿Adiós Copilot? Microsoft podría copiar la receta de Apple para cambiarle de nombre a su IA",
-      "description": "Copilot es la máxima expresión del empuje que Microsoft le está dando a las funciones de inteligencia artificial de sus productos de software y hardware, como también de sus servicios. Pero esto podría cambiar en un futuro no muy lejano, pues se han hallado s…",
-      "url": "http://hipertextual.com/2024/11/microsoft-copilot-podria-cambiar-nombre-windows-intelligence",
-      "urlToImage": "https://imgs.hipertextual.com/wp-content/uploads/2024/03/copilot-scaled.jpg",
-      "publishedAt": "2024-11-04T15:49:27Z",
-      "content": "Copilot es la máxima expresión del empuje que Microsoft le está dando a las funciones de inteligencia artificial de sus productos de software y hardware, como también de sus servicios. Pero esto podr… [+1968 chars]",
-      "isFavorite": true,
-      "userId": "3"
-    },
-    {
       "id": "69a0",
       "source": {
         "id": null,

@@ -34,38 +34,6 @@
       "userId": "3"
     },
     {
-      "id": "0b60",
-      "source": {
-        "id": null,
-        "name": "Hipertextual"
-      },
-      "author": "Luis Miranda",
-      "title": "Microsoft ralentizó el Panel de Control de Windows a propósito",
-      "description": "El Panel de Control ha sido uno de los componentes esenciales de Windows durante décadas. La herramienta, que permite configurar el sistema y gestionar el hardware y software, perdió relevancia tras la llegada de Windows 10 y está en proceso de volverse obsol…",
-      "url": "http://hipertextual.com/2024/11/microsoft-ralentizo-el-panel-de-control-de-windows-a-proposito",
-      "urlToImage": "https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2024/08/panel-control-windows-portada.jpg?fit=1920%2C1201&quality=70&strip=all&ssl=1",
-      "publishedAt": "2024-11-06T20:40:00Z",
-      "content": "El Panel de Control ha sido uno de los componentes esenciales de Windows durante décadas. La herramienta, que permite configurar el sistema y gestionar el hardware y software, perdió relevancia tras … [+2461 chars]",
-      "isFavorite": true,
-      "userId": "3"
-    },
-    {
-      "id": "ae36",
-      "source": {
-        "id": null,
-        "name": "Hipertextual"
-      },
-      "author": "Quelian Sanz",
-      "title": "Buenas noticias para tu Samsung: One UI 7 ya tiene fecha de lanzamiento, y es mucho antes de lo esperado",
-      "description": "Parece que las incógnitas sobre One UI 7, los móviles compatibles y las fechas empiezan a desaparecer. Hace unos días te contamos cuáles serán los primeros 23 Samsung en actualizar al nuevo software, y hoy podemos contarte cuándo ocurrirá este hito. De forma …",
-      "url": "http://hipertextual.com/2024/11/buenas-noticias-para-tu-samsung-one-ui-7-ya-tiene-fecha-de-lanzamiento-y-es-mucho-antes-de-lo-esperado",
-      "urlToImage": "https://imgs.hipertextual.com/wp-content/uploads/2024/11/ONE-UI-7.jpg",
-      "publishedAt": "2024-11-04T10:28:26Z",
-      "content": "Parece que las incógnitas sobre One UI 7, los móviles compatibles y las fechas empiezan a desaparecer. Hace unos días te contamos cuáles serán los primeros 23 Samsung en actualizar al nuevo software,… [+2659 chars]",
-      "isFavorite": true,
-      "userId": "3"
-    },
-    {
       "id": "aa79",
       "source": {
         "id": null,
@@ -78,22 +46,6 @@
       "urlToImage": "https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2024/10/mesut-cicen-c0dXPjj0nio-unsplash-scaled.jpg?fit=2560%2C1707&quality=70&strip=all&ssl=1",
       "publishedAt": "2024-10-25T19:50:00Z",
       "content": "Si algo ha quedado claro en los últimos años es que Apple tiene un plan muy ambicioso en el plano de la salud. Esto se ha visto especialmente con el Apple Watch, aunque los esfuerzos también se han e… [+2341 chars]",
-      "isFavorite": true,
-      "userId": "3"
-    },
-    {
-      "id": "da5d",
-      "source": {
-        "id": null,
-        "name": "Hipertextual"
-      },
-      "author": "Luis Miranda",
-      "title": "¿Tienes una tarjeta gráfica NVIDIA? Tu PC podría estar en peligro",
-      "description": "Si tienes una tarjeta gráfica NVIDIA y no has actualizado los controladores en las últimas semanas, tu ordenador podría estar en peligro. El fabricante alertó sobre una serie de vulnerabilidades de alta gravedad que permitirían a un atacante ejecutar código, …",
-      "url": "http://hipertextual.com/2024/11/nvidia-tarjeta-grafica-vulnerabilidades-controlador-pantalla",
-      "urlToImage": "https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2023/05/geforce-rtx-4060-ti-gpu.jpg?fit=2000%2C1125&quality=70&strip=all&ssl=1",
-      "publishedAt": "2024-11-04T19:30:00Z",
-      "content": "Si tienes una tarjeta gráfica NVIDIA y no has actualizado los controladores en las últimas semanas, tu ordenador podría estar en peligro. El fabricante alertó sobre una serie de vulnerabilidades de a… [+2269 chars]",
       "isFavorite": true,
       "userId": "3"
     }

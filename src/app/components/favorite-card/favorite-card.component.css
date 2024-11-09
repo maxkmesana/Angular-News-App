@@ -47,6 +47,11 @@
 .title-container {
   height: 80%;
   overflow: hidden;
+  cursor: pointer;
+}
+
+.subtitle {
+  cursor: pointer;
 }
 
 .title {

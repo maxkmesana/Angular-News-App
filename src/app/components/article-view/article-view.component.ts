@@ -3,7 +3,7 @@ import { Article } from '../../interfaces/article.interface';
 import { NewsApiService } from '../../services/news-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiResponse } from '../../interfaces/response.interface';
-import { Subscription, switchMap } from 'rxjs';
+import { map, Subscription, switchMap } from 'rxjs';
 import { UserService } from '../../services/users.service';
 import { FavoriteService } from '../../services/favorites.service';
 import { ArticleContentComponent } from '../article-content/article-content.component';
@@ -34,25 +34,28 @@ export class ArticleViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.newsApiService.getMainNews().subscribe({
-      next: (response: ApiResponse) => {
-        this.route.paramMap
-          .pipe(
-            switchMap((param) => {
-              return param.get('title') ?? ' ';
-            })
-          )
-          .subscribe({
-            next: (title) => {
-              response.articles.forEach((article) => {
-                if (article.title.localeCompare(title)) {
-                  this.article = article;
-                }
-              });
-            },
-            error: console.log,
-          });
+    this.route.paramMap.pipe(
+      map(param => param.get('title') ?? ' '),
+      switchMap(title => 
+        this.newsApiService.getMainNews().pipe(
+          map(response => ({
+            title,
+            articles: response.articles
+          }))
+        )
+      )
+    ).subscribe({
+      next: ({title, articles}) => {
+        const foundArticle = articles.find(article => 
+          article.title === title
+        );
+        if (foundArticle) {
+          this.article = foundArticle;
+        } else {
+          console.log('Article not found');  // Handle this case
+        }
       },
+      error: (error) => console.error('Error:', error)
     });
-  }
+}
 }

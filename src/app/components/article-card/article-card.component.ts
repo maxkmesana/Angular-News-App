@@ -22,7 +22,7 @@ export class ArticleCardComponent implements OnInit{
   @Input() article!: Article;
 
   service: FavoriteService = inject(FavoriteService);
-  userId: ActiveUser | undefined  = undefined;
+  userId: ActiveUser | null  = null;
   subscription: Subscription
 
   constructor(private userService: UserService) {

@@ -1,17 +1,21 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, EventEmitter, inject, Input, input, OnInit, Output } from '@angular/core';
 import { UserService } from '../../services/users.service';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { NgIf } from '@angular/common';
+import { A11yModule } from '@angular/cdk/a11y';
 
 @Component({
   selector: 'app-sing-in',
   standalone: true,
-  imports: [ReactiveFormsModule, NgIf],
+  imports: [ReactiveFormsModule, NgIf, A11yModule],
   templateUrl: './sing-in.component.html',
   styleUrl: './sing-in.component.css'
 })
 export class SingInComponent implements OnInit{
+
+  @Output() modalClosed = new EventEmitter<void>();
+  @Input() isOpen: boolean = false;
 
   emailDuplicated$: Observable<boolean> | undefined;
   passwordVisible: boolean = false;
@@ -21,6 +25,15 @@ export class SingInComponent implements OnInit{
   ngOnInit(): void {
     const emailControl = this.form.get('email') as FormControl;
     this.emailDuplicated$ = this.authService.checkDuplicated(emailControl).pipe(response =>  response)
+  }
+
+  
+  constructor() {
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && this.isOpen) {
+        this.closeModal();
+      }
+    });
   }
 
   form = this.fb.nonNullable.group({
@@ -37,7 +50,8 @@ export class SingInComponent implements OnInit{
 
     this.authService.singup(newUser).subscribe({
       next: () => {
-        alert('Successfull sing up')
+        alert('Successfull sing up');
+        this.closeModal();
       },
       error: (error) => {
         if(error === 500){
@@ -51,6 +65,34 @@ export class SingInComponent implements OnInit{
     this.passwordVisible = !this.passwordVisible;
     password.type = this.passwordVisible ? 'text' : 'password';
   }
-  
-}
 
+  openModal() {
+   this.isOpen = true;
+    document.body.style.overflow = 'hidden';
+  }
+  
+  
+  closeModal() {
+    this.isOpen = false;
+    document.body.style.overflow = 'auto';
+    this.form.reset();
+    this.modalClosed.emit();
+  }
+
+  
+  onBackdropClick(event: MouseEvent) {
+    if (event.target === event.currentTarget) {
+      this.closeModal();
+    }
+  }
+
+  ngOnDestroy() {
+    document.removeEventListener('keydown', this.handleEscKey);
+  }
+
+  private handleEscKey = (e: KeyboardEvent) => {
+    if (e.key === 'Escape' && this.isOpen) { 
+      this.closeModal();
+    }
+  }
+}

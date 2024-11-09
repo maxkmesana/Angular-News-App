@@ -15,12 +15,10 @@ export class UserService implements OnInit{
   }
 
   private http = inject(HttpClient);
-  
   private JSON_SERVER_URL: String = "http://localhost:3000";  
 
-  constructor() { }
-
-  private authSignSubject = new BehaviorSubject<ActiveUser | undefined>(undefined);  // FIXME: SACAR ESE TRES PORQUE ES DE TESTEOOOO/solved
+  private localStorageKey = 'token';
+  authSignSubject = new BehaviorSubject<ActiveUser | null>(this.loadUserFromLocalStorage()); 
   loggedUserId$ = this.authSignSubject.asObservable();
 
 
@@ -56,12 +54,27 @@ export class UserService implements OnInit{
     return bcrypt.hashSync(password, salt); 
   }
 
+  loadUserFromLocalStorage(): ActiveUser | null {
+    const user = localStorage.getItem(this.localStorageKey);
+    return user ? JSON.parse(user) : null;
+  }
+
+  saveUserToLocalStorage(user: { id?: string, username?: string } | undefined): void {
+    if (user) {
+      localStorage.setItem(this.localStorageKey, JSON.stringify(user));
+    } else {
+      localStorage.removeItem(this.localStorageKey);
+    }
+  }
+
   singup(user: User): Observable<boolean> {
     const hashedPass = this.hashPassword(user.password);
     user.password = hashedPass; // Client side password hashing is never used, the client sent plane text password and it's hashed in server, anyways dont have one
     return this.http.post<User>(`${this.JSON_SERVER_URL}/users` ,user).pipe(
       map(({ id, username }) => {
         if(id){
+          const loggedInUser = { id, username };
+          this.saveUserToLocalStorage(loggedInUser);
           this.authSignSubject.next({ id, username });
           return true;
         }

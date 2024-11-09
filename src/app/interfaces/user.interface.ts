@@ -1,3 +1,8 @@
 export interface User{
-    id?: String
+    id?: string,
+    name: string,
+    lastname: string,
+    username: string,
+    email: string,
+    password: string
 }

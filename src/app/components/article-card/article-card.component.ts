@@ -7,6 +7,7 @@ import { MatIcon } from '@angular/material/icon';
 import { FavoriteService } from '../../services/favorites.service';
 import { Subscription } from 'rxjs';
 import { UserService } from '../../services/users.service';
+import { ActiveUser } from '../../interfaces/active-user';
 
 @Component({
   selector: 'app-article-card',
@@ -21,18 +22,15 @@ export class ArticleCardComponent implements OnInit{
   @Input() article!: Article;
 
   service: FavoriteService = inject(FavoriteService);
-  userId: string  = '';
+  userId: ActiveUser | undefined  = undefined;
   subscription: Subscription
 
-
-  
   constructor(private userService: UserService) {
     this.subscription = this.userService.loggedUserId$.subscribe(data => {
       this.userId = data;
     });
   }
 
-  
   ngOnInit(): void {
     this.article.isFavorite = false; // FIXME: esto no deberia siempre ser false. Deberia venir desde el articulo
   }
@@ -49,7 +47,7 @@ export class ArticleCardComponent implements OnInit{
       this.service.deleteFavorite(this.article.url).subscribe();
     }
     if(article?.isFavorite === false){
-      article.userId = this.userId;
+      article.userId = this.userId.id;
       this.service.postFavorite(article).subscribe();
     }
     this.article.isFavorite = !this.article.isFavorite

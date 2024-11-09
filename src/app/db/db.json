@@ -1,4 +1,30 @@
 {
-  "users": [],
-  "favorites": []
+  "users": [
+    {
+      "id": "beb8",
+      "email": "yatel.espasandin@gmail.com",
+      "name": "yate",
+      "lastname": "espasa",
+      "username": "yatelito",
+      "password": "$2a$10$p9.uX9RSSpZ16ulDVY14qOmquLrnzcQ2n3n4D1nyONTdeP6MehMmO"
+    }
+  ],
+  "favorites": [
+    {
+      "id": "bf3ded52734557121efa485340570b5d",
+      "source": {
+        "id": null,
+        "name": "Hipertextual"
+      },
+      "author": "Luis Miranda",
+      "title": "Microsoft ralentizó el Panel de Control de Windows a propósito",
+      "description": "El Panel de Control ha sido uno de los componentes esenciales de Windows durante décadas. La herramienta, que permite configurar el sistema y gestionar el hardware y software, perdió relevancia tras la llegada de Windows 10 y está en proceso de volverse obsol…",
+      "url": "http://hipertextual.com/2024/11/microsoft-ralentizo-el-panel-de-control-de-windows-a-proposito",
+      "urlToImage": "https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2024/08/panel-control-windows-portada.jpg?fit=1920%2C1201&quality=70&strip=all&ssl=1",
+      "publishedAt": "2024-11-06T20:40:00Z",
+      "content": "El Panel de Control ha sido uno de los componentes esenciales de Windows durante décadas. La herramienta, que permite configurar el sistema y gestionar el hardware y software, perdió relevancia tras … [+2461 chars]",
+      "isFavorite": false,
+      "userId": "3"
+    }
+  ]
 }

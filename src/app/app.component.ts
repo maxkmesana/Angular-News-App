@@ -5,7 +5,7 @@ import { ArticleCardComponent } from './components/article-card/article-card.com
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ArticleCardComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -3,27 +3,29 @@
   justify-content: center;
   align-items: center;
   margin: 3%;
+  padding: 0px;
 }
 
 .card {
-  width: 70%;
+  width: 80%;
   height: 276px;
   background-color: rgba(240, 248, 255, 0.622);
-  border-radius: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .card:hover {
   box-shadow: 5px 5px 10px 2px#2e2e2e3f;
 }
+
 .card .image-container {
-  width: 340px;
-  height: 200px;
-  border-radius: 9px;
+  width: 80%;
+  height: 100%;
   overflow: hidden;
-  margin: 3%;
   float: left;
+  cursor: pointer;
+  margin-right: 3%;
 }
 
 .card .image-container img {
@@ -31,50 +33,99 @@
   height: 100%;
   object-fit: cover;
 }
-.image-container img:hover {
-  filter: brightness(70%);
-}
+
 .card-content {
-  width: 50%;
-  height: 65%;
+  width: 90%;
+  height: 60%;
   float: right;
   overflow: hidden;
+  display: block;
+  margin: 6%;
+  padding: 0%;
 }
 
-.card-content .title-container {
-  width: 80%;
-  height: 90%;
+.title-container {
+  height: 80%;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-.card-content .title-container p.title {
-  font-size: larger;
-  text-decoration: none;
-  color: #121212;
+.subtitle {
+  cursor: pointer;
 }
 
-.card-content .title-container p.title:hover {
-  text-decoration: underline;
-}
-
-.card-content p.subtitle {
-  color: rgb(39, 39, 38);
-  font-size: 17px;
-  height: 20%;
-  width: 80%;
+.title {
+  font-size: 24px;
 }
 
 .icon-not-fav {
-  margin-right: 20px;
+  margin-top: 20px;
   float: right;
   color: rgb(139, 139, 139);
+  display: inline;
+  cursor: pointer;
 }
 
 .icon-fav {
-  margin-right: 20px;
+  margin-top: 20px;
   float: right;
   color: rgb(0, 0, 0);
+  display: inline;
+  cursor: pointer;
 }
 
 .icon-not-fav:hover {
   color: #202020;
+  cursor: pointer;
+}
+
+.icon-fav:hover {
+  color: #585858;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 968px) {
+  .card {
+    width: 80%;
+    height: auto;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .card .image-container {
+    width: 100%;
+    height: 200px;
+    float: none;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .card-content {
+    display: flexbox;
+    width: 100%;
+    height: auto;
+    float: none;
+    margin: 0;
+  }
+
+  .card-content .title-container {
+    height: auto;
+    max-height: 200px;
+    margin-bottom: 15px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .fav-button {
+    width: 100%;
+    display: block;
+  }
+  .icon-not-fav,
+  .icon-fav {
+    margin-right: 10px;
+    float: right;
+    display: inline;
+  }
 }

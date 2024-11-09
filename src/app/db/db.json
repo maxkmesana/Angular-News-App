@@ -2,18 +2,50 @@
   "users": [],
   "favorites": [
     {
-      "id": "613d",
+      "id": "69a0",
       "source": {
         "id": null,
         "name": "Hipertextual"
       },
-      "author": "Quelian Sanz",
-      "title": "Es oficial, Xiaomi confirma la fecha de lanzamiento de HyperOS 2.0 y los primeros móviles que actualizarán",
-      "description": "Tras una espera larga y tediosa, por fin tenemos palabras oficiales por parte de Xiaomi. La compañía acaba de confirmar que el evento para la presentación de HyperOS 2.0 será en cuestión de unos pocos días. Además, no solo ha anunciado que renueva su software…",
-      "url": "http://hipertextual.com/2024/10/es-oficial-xiaomi-confirma-la-fecha-de-lanzamiento-de-hyperos-2-0-y-los-primeros-moviles-que-actualizaran",
-      "urlToImage": "https://imgs.hipertextual.com/wp-content/uploads/2024/10/Xiaomi-HyperOS-2.0.jpg",
-      "publishedAt": "2024-10-23T15:21:54Z",
-      "content": "Tras una espera larga y tediosa, por fin tenemos palabras oficiales por parte de Xiaomi. La compañía acaba de confirmar que el evento para la presentación de HyperOS 2.0 será en cuestión de unos poco… [+2269 chars]",
+      "author": "Gabriel Erard",
+      "title": "Intel y AMD se alían para blindar el futuro de x86",
+      "description": "Intel y AMD han anunciado una alianza como parte de un grupo asesor con el que buscan blindar el futuro de x86. El ente en cuestión, denominado x86 Ecosystem Advisory Group, busca ofrecer compatibilidad entre las plataformas y simplificar el desarrollo de nue…",
+      "url": "http://hipertextual.com/2024/10/aliana-intel-amd-x86",
+      "urlToImage": "https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2024/10/intel-amd-x86-scaled.jpg?fit=2560%2C1440&quality=70&strip=all&ssl=1",
+      "publishedAt": "2024-10-15T19:30:00Z",
+      "content": "Intel y AMD han anunciado una alianza como parte de un grupo asesor con el que buscan blindar el futuro de x86. El ente en cuestión, denominado x86 Ecosystem Advisory Group, busca ofrecer compatibili… [+2105 chars]",
+      "isFavorite": true,
+      "userId": "3"
+    },
+    {
+      "id": "9c0e",
+      "source": {
+        "id": null,
+        "name": "Hipertextual"
+      },
+      "author": "Gabriel Erard",
+      "title": "Samsung lleva One UI a sus televisores con Tizen: estas son sus principales novedades",
+      "description": "Los televisores de Samsung que usan Tizen como sistema operativo han comenzado a actualizarse a One UI. De esta manera, los coreanos pretenden unificar la experiencia de software entre estos dispositivos y otros productos —como sus móviles y tablets— que usan…",
+      "url": "http://hipertextual.com/2024/10/samsung-one-ui-actualizacion-televisores-tizen",
+      "urlToImage": "https://imgs.hipertextual.com/wp-content/uploads/2024/01/samsung-neo-qled-8k-001.jpg",
+      "publishedAt": "2024-10-14T16:12:23Z",
+      "content": "Los televisores de Samsung que usan Tizen como sistema operativo han comenzado a actualizarse a One UI. De esta manera, los coreanos pretenden unificar la experiencia de software entre estos disposit… [+2142 chars]",
+      "isFavorite": true,
+      "userId": "3"
+    },
+    {
+      "id": "aa79",
+      "source": {
+        "id": null,
+        "name": "Hipertextual"
+      },
+      "author": "Gabriel Erard",
+      "title": "Apple prepara nuevas funciones de salud para ayudar a prevenir la diabetes",
+      "description": "Si algo ha quedado claro en los últimos años es que Apple tiene un plan muy ambicioso en el plano de la salud. Esto se ha visto especialmente con el Apple Watch, aunque los esfuerzos también se han expandido a los AirPods y al software que impulsa a sus múlti…",
+      "url": "http://hipertextual.com/2024/10/apple-funciones-salud-prevenir-diabetes",
+      "urlToImage": "https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2024/10/mesut-cicen-c0dXPjj0nio-unsplash-scaled.jpg?fit=2560%2C1707&quality=70&strip=all&ssl=1",
+      "publishedAt": "2024-10-25T19:50:00Z",
+      "content": "Si algo ha quedado claro en los últimos años es que Apple tiene un plan muy ambicioso en el plano de la salud. Esto se ha visto especialmente con el Apple Watch, aunque los esfuerzos también se han e… [+2341 chars]",
       "isFavorite": true,
       "userId": "3"
     }

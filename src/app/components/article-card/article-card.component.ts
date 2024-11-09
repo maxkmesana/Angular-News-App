@@ -10,7 +10,7 @@ import {
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { Article } from '../../interfaces/article.interface';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
 import { FavoriteService } from '../../services/favorites.service';
 import { Subscription } from 'rxjs';
@@ -26,7 +26,6 @@ import { Md5 } from 'ts-md5';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ArticleCardComponent {
-  
   @Input() article!: Article;
   @Input() userId!: string;
   @Output() navigateEvent = new EventEmitter<string>();
@@ -34,20 +33,19 @@ export class ArticleCardComponent {
 
   favoriteService: FavoriteService = inject(FavoriteService);
 
-
-  
-  constructor() {
-  }
+  constructor() {}
 
   handleFavClick() {
     if (this.article.isFavorite) {
-      this.favoriteService.removeFromFavorites(this.article.url, this.userId).subscribe({
-        error: (error) => console.error('Error removing favorite:', error)
-      });
+      this.favoriteService
+        .removeFromFavorites(this.article.url, this.userId)
+        .subscribe({
+          error: (error) => console.error('Error removing favorite:', error),
+        });
       this.article.isFavorite = false;
     } else {
       this.favoriteService.addToFavorites(this.article, this.userId).subscribe({
-        error: (error) => console.error('Error adding favorite:', error)
+        error: (error) => console.error('Error adding favorite:', error),
       });
       this.article.isFavorite = true;
     }

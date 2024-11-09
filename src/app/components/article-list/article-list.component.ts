@@ -19,7 +19,7 @@ import { Router } from '@angular/router';
 export class ArticleListComponent implements OnInit {
   newsApiService: NewsApiService = inject(NewsApiService);
   favoriteService: FavoriteService = inject(FavoriteService);
-  router: Router = inject(Router)
+  router: Router = inject(Router);
 
   articles: Article[] = [];
 

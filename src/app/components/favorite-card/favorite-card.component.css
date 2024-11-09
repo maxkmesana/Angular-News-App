@@ -8,17 +8,19 @@
 .card {
   width: 70%;
   height: 276px;
-  background-color: rgb(255, 255, 255);
-  border-radius: 59px;
+  background-color: rgba(240, 248, 255, 0.622);
+  border-radius: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
+.card:hover {
+  box-shadow: 5px 5px 10px 2px#2e2e2e3f;
+}
 .card .image-container {
   width: 340px;
   height: 200px;
-  border-radius: 20px;
+  border-radius: 9px;
   overflow: hidden;
   margin: 3%;
   float: left;
@@ -28,6 +30,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.image-container img:hover {
+  filter: brightness(70%);
 }
 .card-content {
   width: 50%;
@@ -44,7 +49,7 @@
 .card-content .title-container p.title {
   font-size: larger;
   text-decoration: none;
-  color: #2e2e2e;
+  color: #121212;
 }
 
 .card-content .title-container p.title:hover {
@@ -52,7 +57,7 @@
 }
 
 .card-content p.subtitle {
-  color: rgb(77, 77, 72);
+  color: rgb(39, 39, 38);
   font-size: 17px;
   height: 20%;
   width: 80%;
@@ -61,15 +66,15 @@
 .icon-not-fav {
   margin-right: 20px;
   float: right;
-  color: rgb(221, 221, 221);
+  color: rgb(139, 139, 139);
 }
 
 .icon-fav {
   margin-right: 20px;
   float: right;
-  color: rgb(44, 44, 44);
+  color: rgb(0, 0, 0);
 }
 
 .icon-not-fav:hover {
-  color: #8a8a8a;
+  color: #202020;
 }

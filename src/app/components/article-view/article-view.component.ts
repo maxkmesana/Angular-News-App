@@ -16,7 +16,6 @@ import { ArticleContentComponent } from '../article-content/article-content.comp
   styleUrl: './article-view.component.css',
 })
 export class ArticleViewComponent implements OnInit {
-
   article?: Article;
 
   userId: string = '';

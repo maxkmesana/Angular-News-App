@@ -1,18 +1,20 @@
 <div class="card-container">
-<div class="card">
-  <div class="image-container">
-  <img src={{article.urlToImage}} alt={{article.title}}>
+  <div class="card">
+    <div class="image-container" (click)="onNavigate()">
+      <img src="{{ article.urlToImage }}" alt="{{ article.title }}" />
+    </div>
+    <div class="card-content">
+      <p class="subtitle" (click)="onNavigate()">{{ article.source.name }}</p>
+      @if (article.isFavorite) {
+      <mat-icon class="icon-fav" (click)="handleFavClick()">bookmark</mat-icon>
+      } @else{
+      <mat-icon class="icon-not-fav" (click)="handleFavClick()"
+        >bookmark</mat-icon
+      >
+      }
+      <div class="title-container" (click)="onNavigate()">
+        <a class="title">{{ article.title }}</a>
+      </div>
+    </div>
   </div>
-  <div class="card-content">
-  <p class="subtitle">{{article.source.name}} </p>
-  @if (article.isFavorite) {
-    <mat-icon class="icon-fav" (click)="handleFavClick()">bookmark</mat-icon>
-  }
-  @else{
-    <mat-icon class="icon-not-fav" (click)="handleFavClick()">bookmark</mat-icon>
-  }
-  <div class="title-container">
-    <a class="title" (click)="onNavigate()">{{ article.title }}</a>
-  </div>
- </div>
 </div>

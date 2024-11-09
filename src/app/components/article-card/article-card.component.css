@@ -23,16 +23,13 @@
   height: 180px;
   overflow: hidden;
   margin-bottom: 7px;
+  cursor: pointer;
 }
 
 .card .image-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.image-container img:hover {
-  filter: brightness(70%);
 }
 
 .card-content {
@@ -46,6 +43,7 @@
   padding: 5px 0px;
   margin-top: 5px;
   margin-bottom: 15px;
+  cursor: pointer;
 }
 
 .card-content .title-container a.title {
@@ -55,7 +53,7 @@
   text-align: center;
 }
 
-.card-content .title-container a.title:hover {
+.card:hover .title-container a.title {
   text-decoration: underline;
 }
 
@@ -63,6 +61,7 @@
   color: rgb(39, 39, 38);
   font-size: 13px;
   display: inline-block;
+  cursor: pointer;
 }
 
 .icon-not-fav {
@@ -70,6 +69,7 @@
   float: right;
   color: rgb(139, 139, 139);
   display: inline;
+  cursor: pointer;
 }
 
 .icon-fav {
@@ -77,8 +77,10 @@
   float: right;
   color: rgb(0, 0, 0);
   display: inline;
+  cursor: pointer;
 }
 
 .icon-not-fav:hover {
   color: #202020;
+  cursor: pointer;
 }

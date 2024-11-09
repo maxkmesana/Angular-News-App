@@ -6,10 +6,10 @@
       <div class="card-content">
       <p class="subtitle">{{article.source.name}} </p>
       @if (article.isFavorite) {
-        <mat-icon class="icon-fav" (click)="handleFavClick(article)">bookmark</mat-icon>
+        <mat-icon class="icon-fav" (click)="handleFavClick()">bookmark</mat-icon>
       }
       @else{
-        <mat-icon class="icon-not-fav" (click)="handleFavClick(article)">bookmark</mat-icon>
+        <mat-icon class="icon-not-fav" (click)="handleFavClick()">bookmark</mat-icon>
       }
       <div class="title-container">
       <a class="title" href={{article.url}}>{{article.title}}</a>

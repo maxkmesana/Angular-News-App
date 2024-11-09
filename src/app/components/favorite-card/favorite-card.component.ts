@@ -1,4 +1,4 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { Article } from '../../interfaces/article.interface';
 import { FavoriteService } from '../../services/favorites.service';
 import { Subscription } from 'rxjs';
@@ -12,44 +12,25 @@ import { MatIcon } from '@angular/material/icon';
   templateUrl: './favorite-card.component.html',
   styleUrl: './favorite-card.component.css'
 })
-export class FavoriteCardComponent implements OnInit {
+export class FavoriteCardComponent{
   @Input() article!: Article;
+  @Input() userId!: string;
+  @Output() deleteEvent = new EventEmitter<string>();
 
-  service: FavoriteService = inject(FavoriteService);
-  userId: string  = '';
-  subscription: Subscription
-
-
+  favoriteService: FavoriteService = inject(FavoriteService);
   
-  constructor(private userService: UserService
-  ) {
-    this.subscription = this.userService.loggedUserId$.subscribe(data => {
-      this.userId = data;
-    });
+  constructor() {
   }
 
-  
-  ngOnInit(): void {
-    this.article.isFavorite = false; // FIXME: esto no deberia siempre ser false. Deberia venir desde el articulo
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
-
-  handleFavClick(article: Article
-  ){
-    if(this.userId == null){
-      throw new Error("article-card.handleFavClick(): userId cannot be null.")
+  handleFavClick() {
+    if (this.article.isFavorite) {
+      this.deleteEvent.emit(this.article.url);
+    } else {
+      this.favoriteService.addToFavorites(this.article, this.userId).subscribe({
+        error: (error) => console.error('Error adding favorite:', error)
+      });
+      this.article.isFavorite = true;
     }
-    if(article?.isFavorite === true){
-      this.service.deleteFavorite(this.article.url).subscribe();
-    }
-    if(article?.isFavorite === false){
-      article.userId = this.userId;
-      this.service.postFavorite(article).subscribe();
-    }
-    this.article.isFavorite = !this.article.isFavorite
   }
 
 }

@@ -7,10 +7,10 @@ import { MyNewsPageComponent } from './pages/my-news-page/my-news-page.component
 
 export const routes: Routes = [
     {
-        path:"dev-article-card", component: ArticleCardComponent
+        path:"", component: ArticleListPageComponent,
     },
     {
-        path:"dev-article-list-page", component: ArticleListPageComponent,
+        path:"dev-article-card", component: ArticleCardComponent
     },
     {
         path:"my-news", component: MyNewsPageComponent,

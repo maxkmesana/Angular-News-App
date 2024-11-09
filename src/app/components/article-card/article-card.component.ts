@@ -7,6 +7,7 @@ import { MatIcon } from '@angular/material/icon';
 import { FavoriteService } from '../../services/favorites.service';
 import { Subscription } from 'rxjs';
 import { UserService } from '../../services/users.service';
+import { Md5 } from 'ts-md5';
 
 @Component({
   selector: 'app-article-card',
@@ -16,43 +17,30 @@ import { UserService } from '../../services/users.service';
   styleUrl: './article-card.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ArticleCardComponent implements OnInit{
+export class ArticleCardComponent {
   
   @Input() article!: Article;
+  @Input() userId!: string;
+  // @Input() favSet!: Set<string | undefined>;
 
-  service: FavoriteService = inject(FavoriteService);
-  userId: string  = '';
-  subscription: Subscription
+  favoriteService: FavoriteService = inject(FavoriteService);
 
-
-  
-  constructor(private userService: UserService) {
-    this.subscription = this.userService.loggedUserId$.subscribe(data => {
-      this.userId = data;
-    });
-  }
 
   
-  ngOnInit(): void {
-    this.article.isFavorite = false; // FIXME: esto no deberia siempre ser false. Deberia venir desde el articulo
+  constructor() {
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
+  handleFavClick() {
+    if (this.article.isFavorite) {
+      this.favoriteService.removeFromFavorites(this.article.url, this.userId).subscribe({
+        error: (error) => console.error('Error removing favorite:', error)
+      });
+      this.article.isFavorite = false;
+    } else {
+      this.favoriteService.addToFavorites(this.article, this.userId).subscribe({
+        error: (error) => console.error('Error adding favorite:', error)
+      });
+      this.article.isFavorite = true;
+    }
   }
-
-  handleFavClick(article: Article){
-    if(this.userId == null){
-      throw new Error("article-card.handleFavClick(): userId cannot be null.")
-    }
-    if(article?.isFavorite === true){
-      this.service.deleteFavorite(this.article.url).subscribe();
-    }
-    if(article?.isFavorite === false){
-      article.userId = this.userId;
-      this.service.postFavorite(article).subscribe();
-    }
-    this.article.isFavorite = !this.article.isFavorite
-  }
-
 }

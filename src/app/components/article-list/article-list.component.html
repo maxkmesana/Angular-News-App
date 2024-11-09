@@ -1,7 +1,7 @@
 
-    <div class="cards-container">
+<div class="cards-container">
     @for (article of articles; track $index) {
-        <app-article-card [article]="article" />
+        <app-article-card [article]="article" [userId]="userId"/>
     }
 </div>
 

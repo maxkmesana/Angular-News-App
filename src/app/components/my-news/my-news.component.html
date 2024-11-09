@@ -1,7 +1,7 @@
 
 <div class="cards-container">
-    @for (article of articles; track $index) {
-        <app-favorite-card [article]="article" />
+    @for (article of userFavorites; track $index) {
+        <app-favorite-card [article]="article" [userId]="userId" (deleteEvent)="handleOnDelete($event)"/>
     }
 </div>
 

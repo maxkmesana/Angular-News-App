@@ -22,6 +22,7 @@ export class UserService implements OnInit{
   loggedUserId$ = this.loggedUserId.asObservable();
 
 
+  // should happen on successful login? maybe?
   setLoggedUserId(userId: string){
     this.loggedUserId.next(userId);
   }

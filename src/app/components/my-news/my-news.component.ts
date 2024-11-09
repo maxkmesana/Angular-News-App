@@ -6,6 +6,7 @@ import { UserService } from '../../services/users.service';
 import { NewsApiService } from '../../services/news-api.service';
 import { ApiResponse } from '../../interfaces/response.interface';
 import { FavoriteCardComponent } from "../favorite-card/favorite-card.component";
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-my-news',
@@ -14,47 +15,39 @@ import { FavoriteCardComponent } from "../favorite-card/favorite-card.component"
   templateUrl: './my-news.component.html',
   styleUrl: './my-news.component.css'
 })
-export class MyNewsComponent implements OnInit/*implements OnInit*/{ 
-/*borrar, es para configurar el estilo */
-
-newsApiService: NewsApiService = inject(NewsApiService);
-
-articles: Article[] = [];
-
-ngOnInit(): void {
-  this.newsApiService.getMainNews().subscribe({
-    next: (response:ApiResponse) => {this.articles = response.articles}
-  })
-}
-
+export class MyNewsComponent /*implements OnInit*/ { 
 
  /* Falta: 
  1. Que reciba el id del usuario, 
  2. Manejo de error,
  3. Escribir la ruta al login en caso de que no este logeado el usuario*/
 
- /*
-  userFavorites: Array<Article> = [];
+  favoriteService: FavoriteService = inject(FavoriteService);
 
-  constructor(private favoriteService: FavoriteService, private userService: UserService, private route: Router){}
+  userFavorites: Article[] = [];
+ 
+  userId: string  = '';
+  subscription: Subscription
+
+ constructor(private userService: UserService) {
+   this.subscription = this.userService.loggedUserId$.subscribe(data => {
+     this.userId = data;
+   });
+ }
+
   ngOnInit(): void {
-    this.userService.getUserById(id).subscribe({
-      next: ()=>{
-        if(id){
-          this.favoriteService.getFavoritesByUserId(id).subscribe(
-            {
-              next: (favorites)=>{this.userFavorites = favorites}
-              ,
-              error: console.log
-            }
-          )
-        }else{
-          this.route.navigate = (['login']); //NOMBRE DE LA RUTA AL LOGIN
-        }
-      },
-      error: console.log
-    })
-    
+    this.favoriteService.getFavoritesByUserId(this.userId).subscribe(
+      {
+        next: (data) => {this.userFavorites = data},
+        error: (error) => {console.log(error)}
+      }
+    )
   }
-    */
+
+  handleOnDelete(urlToDelete: string){
+    this.favoriteService.removeFromFavorites(urlToDelete, this.userId).subscribe({
+      next: () => {this.userFavorites = this.userFavorites.filter(e => e.url !== urlToDelete)},
+      error: (error) => console.error('Error removing favorite:', error)
+    });
+  }
 }

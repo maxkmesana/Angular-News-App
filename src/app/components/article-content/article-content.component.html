@@ -1,0 +1,28 @@
+<div class="article-container">
+  <div class="article-header-container">
+    @if (article.isFavorite) {
+    <mat-icon class="icon-fav" (click)="handleFavClick()"
+      >bookmark</mat-icon
+    >
+    } @else{
+    <mat-icon class="icon-not-fav" (click)="handleFavClick()"
+      >bookmark</mat-icon
+    >
+    }
+    <div class="title">
+      <h1>{{ article.title }}</h1>
+    </div>
+    <div class="date">
+      <p>{{ article.publishedAt }}</p>
+    </div>
+    <div class="description">
+      <p>{{ article.description }}</p>
+    </div>
+  </div>
+  <div class="image-container">
+    <img src="{{ article.urlToImage }}" alt="{{ article.title }}" />
+  </div>
+  <div class="content">
+    {{ article.content }}
+  </div>
+</div>

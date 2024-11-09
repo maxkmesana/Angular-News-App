@@ -7,6 +7,7 @@ import { FavoriteService } from '../../services/favorites.service';
 import { UserService } from '../../services/users.service';
 import { Subscription, switchMap } from 'rxjs';
 import { E } from '@angular/cdk/keycodes';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-article-list',
@@ -18,9 +19,9 @@ import { E } from '@angular/cdk/keycodes';
 export class ArticleListComponent implements OnInit {
   newsApiService: NewsApiService = inject(NewsApiService);
   favoriteService: FavoriteService = inject(FavoriteService);
+  router: Router = inject(Router)
 
   articles: Article[] = [];
-  favortiesSet: Set<string | undefined> = new Set();
 
   userId: string = '';
   subscription: Subscription;
@@ -45,5 +46,9 @@ export class ArticleListComponent implements OnInit {
         },
         error: (error) => console.error('Error loading articles:', error),
       });
+  }
+
+  onNavigate(title: string) {
+    this.router.navigate([`article/${title}`]);
   }
 }

@@ -10,10 +10,11 @@ import { MatIcon } from '@angular/material/icon';
   standalone: true,
   imports: [MatIcon],
   templateUrl: './favorite-card.component.html',
-  styleUrl: './favorite-card.component.css'
+  styleUrl: './favorite-card.component.css',
 })
 export class FavoriteCardComponent{
   @Input() article!: Article;
+  @Output() navigateEvent = new EventEmitter<string>();
   @Input() userId!: string;
   @Output() deleteEvent = new EventEmitter<string>();
 
@@ -33,4 +34,7 @@ export class FavoriteCardComponent{
     }
   }
 
+  onNavigate() {
+    this.navigateEvent.emit(this.article.title);
+  }
 }

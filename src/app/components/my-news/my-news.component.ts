@@ -13,16 +13,17 @@ import { Subscription } from 'rxjs';
   standalone: true,
   imports: [FavoriteCardComponent, FavoriteCardComponent],
   templateUrl: './my-news.component.html',
-  styleUrl: './my-news.component.css'
+  styleUrl: './my-news.component.css',
 })
 export class MyNewsComponent /*implements OnInit*/ { 
 
- /* Falta: 
+  /* Falta: 
  1. Que reciba el id del usuario, 
  2. Manejo de error,
  3. Escribir la ruta al login en caso de que no este logeado el usuario*/
 
   favoriteService: FavoriteService = inject(FavoriteService);
+  router: Router = inject(Router);
 
   userFavorites: Article[] = [];
  
@@ -34,6 +35,10 @@ export class MyNewsComponent /*implements OnInit*/ {
      this.userId = data;
    });
  }
+
+ onNavigate(title: string) {
+  this.router.navigate([`article/${title}`]);
+}
 
   ngOnInit(): void {
     this.favoriteService.getFavoritesByUserId(this.userId).subscribe(

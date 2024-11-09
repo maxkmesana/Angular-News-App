@@ -2,7 +2,7 @@
   "users": [],
   "favorites": [
     {
-      "id": "e276",
+      "id": "ea43",
       "source": {
         "id": null,
         "name": "Hipertextual"
@@ -18,18 +18,18 @@
       "userId": "3"
     },
     {
-      "id": "f34a",
+      "id": "f833",
       "source": {
         "id": null,
         "name": "Hipertextual"
       },
-      "author": "Quelian Sanz",
-      "title": "Buenas noticias para tu Samsung: One UI 7 ya tiene fecha de lanzamiento, y es mucho antes de lo esperado",
-      "description": "Parece que las incógnitas sobre One UI 7, los móviles compatibles y las fechas empiezan a desaparecer. Hace unos días te contamos cuáles serán los primeros 23 Samsung en actualizar al nuevo software, y hoy podemos contarte cuándo ocurrirá este hito. De forma …",
-      "url": "http://hipertextual.com/2024/11/buenas-noticias-para-tu-samsung-one-ui-7-ya-tiene-fecha-de-lanzamiento-y-es-mucho-antes-de-lo-esperado",
-      "urlToImage": "https://imgs.hipertextual.com/wp-content/uploads/2024/11/ONE-UI-7.jpg",
-      "publishedAt": "2024-11-04T10:28:26Z",
-      "content": "Parece que las incógnitas sobre One UI 7, los móviles compatibles y las fechas empiezan a desaparecer. Hace unos días te contamos cuáles serán los primeros 23 Samsung en actualizar al nuevo software,… [+2659 chars]",
+      "author": "Gabriel Erard",
+      "title": "Intel y AMD se alían para blindar el futuro de x86",
+      "description": "Intel y AMD han anunciado una alianza como parte de un grupo asesor con el que buscan blindar el futuro de x86. El ente en cuestión, denominado x86 Ecosystem Advisory Group, busca ofrecer compatibilidad entre las plataformas y simplificar el desarrollo de nue…",
+      "url": "http://hipertextual.com/2024/10/aliana-intel-amd-x86",
+      "urlToImage": "https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2024/10/intel-amd-x86-scaled.jpg?fit=2560%2C1440&quality=70&strip=all&ssl=1",
+      "publishedAt": "2024-10-15T19:30:00Z",
+      "content": "Intel y AMD han anunciado una alianza como parte de un grupo asesor con el que buscan blindar el futuro de x86. El ente en cuestión, denominado x86 Ecosystem Advisory Group, busca ofrecer compatibili… [+2105 chars]",
       "isFavorite": true,
       "userId": "3"
     }

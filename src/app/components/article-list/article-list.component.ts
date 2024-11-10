@@ -46,6 +46,7 @@ export class ArticleListComponent implements OnInit {
   }
 
   loadList() {
+    window.scrollTo(0, 0);
     if (this.currentRoute === null) {
       this.currentRoute = "technology";
     }
@@ -84,7 +85,6 @@ export class ArticleListComponent implements OnInit {
         (document.documentElement.scrollHeight - 200)) {
       this.loadMoreArticles();
     }
-    
   }
   
   loadMoreArticles() {

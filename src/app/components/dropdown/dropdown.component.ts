@@ -1,5 +1,5 @@
 // category-dropdown.component.ts
-import { Component, inject } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { NgIf, NgForOf } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -125,7 +125,18 @@ export class CategoryDropdownComponent {
     this.isOpen = !this.isOpen;
   }
 
-  selectCategory(category: Category): void {
-    this.router.navigate([`category/${category.id}`])
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event): void {
+    const target = event.target as HTMLElement;
+    if (this.isOpen && !target.closest('.dropdown-container')) {
+      this.isOpen = false;
+    }
   }
+
+
+  selectCategory(category: Category): void {
+    this.router.navigate([`category/${category.id}`]);
+    this.isOpen = false;
+  }
+  
 }

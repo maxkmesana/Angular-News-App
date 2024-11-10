@@ -48,6 +48,54 @@
       "content": "Picture this: youre rushing out the door, late for an important meeting and in the chaos, you cant find your keys. Or imagine arriving at your vacation destination only to realize your luggage is now… [+2578 chars]",
       "isFavorite": true,
       "userId": "3"
+    },
+    {
+      "id": "11c8",
+      "source": {
+        "id": null,
+        "name": "Android Central"
+      },
+      "author": "techkritiko@gmail.com (Jay Bonggolto)",
+      "title": "The future of Google's Pixel Watches is looking mighty powerful",
+      "description": "Expect some major hardware upgrades in Pixel Watches from 2026.",
+      "url": "https://www.androidcentral.com/wearables/the-future-of-googles-pixel-watches-is-looking-mighty-powerful",
+      "urlToImage": "https://cdn.mos.cms.futurecdn.net/PqXZpoB9SLWbgwNXTMhvZh-1200-80.jpg",
+      "publishedAt": "2024-10-29T10:57:36Z",
+      "content": "What you need to know\r\n<ul><li>A recent leak suggests Google is working on a custom Tensor chip for future Pixel Watches, set to launch in 2026.</li><li>The upcoming Tensor chip, codenamed NPT, is sa… [+2282 chars]",
+      "isFavorite": true,
+      "userId": "3"
+    },
+    {
+      "id": "9e42",
+      "source": {
+        "id": null,
+        "name": "Qnx.com"
+      },
+      "author": null,
+      "title": "QNX is now free for anything non-commercial, plus there's an RPi image",
+      "description": "QNX offers easy access to QNX software and resources for non-commercial purposes, making innovation more accessible than ever.",
+      "url": "https://blackberry.qnx.com/en/products/qnx-everywhere",
+      "urlToImage": "https://blackberry.qnx.com/etc.clientlibs/bbcom/clientlibs/clientlib-etc-legacy/resources/cylance-web/global/bb-default-thumbnail-social.png",
+      "publishedAt": "2024-11-07T18:35:22Z",
+      "content": "What is the purpose of this initiative?\r\nThis initiative aims to provide engineers and developers with easy access to QNX software and resources for non-commercial use, fostering innovation and skill… [+3001 chars]",
+      "isFavorite": true,
+      "userId": "3"
+    },
+    {
+      "id": "427b",
+      "source": {
+        "id": null,
+        "name": "Gizmodo.com"
+      },
+      "author": "Gizmodo Deals",
+      "title": "Four Days After Prime Day, Amazon Slashes The Price Of AirPods Max To A Record Low",
+      "description": "At less than $400, this Apple headset is an excellent bargain.",
+      "url": "https://gizmodo.com/four-days-after-prime-day-amazon-slashes-the-price-of-airpods-max-to-a-record-low-2000511566",
+      "urlToImage": "https://gizmodo.com/app/uploads/2024/07/airpods-max-apple.jpg",
+      "publishedAt": "2024-10-13T11:15:55Z",
+      "content": "As the autumn leaves begin to fall and the crisp October air settles in, Amazon has decided to extend its Prime Day festivities and offers a great opportunity for audiophiles. This Sunday, a particul… [+2289 chars]",
+      "isFavorite": true,
+      "userId": "3"
     }
   ]
 }

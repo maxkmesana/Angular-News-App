@@ -27,14 +27,19 @@
     <div class="nav-aside-container">
       <ul>
         <li>
-          @if(!username){
-              <button (click)="openModal()">Sign up</button>
-              <app-sing-in [isOpen]="isModalOpen" (modalClosed)="closeModal()"></app-sing-in>
-              <!--When complete, basic functionality we need to make a button y form in case the user already have an account-->
-          }
-          @else{
-            {{username}} <!-- Here implement login component modal, main idea is desplegate a combo with view profile and a button to logOut-->
-          } 
+          <div class="button-container">
+            @if(!username){
+              <button (click)="openLoginModal()" class="login-button">Log in</button>
+              <app-log-in [isOpenL]="isLoginModalOpen" (modalClosed)="closeLoginModal()"></app-log-in>
+  
+              <button (click)="openSigninModal()" class="singup-button">Sign up</button>
+              <app-sing-in [isOpen]="isSigninModalOpen" (modalClosed)="closeSigninModal()"></app-sing-in>
+              <!--When complete basic functionality we need to make a button y form in case the user already have an account-->
+            }
+            @else{
+              <button (click)="logout()">Logout</button>
+            } 
+          </div>
         </li>
       </ul>
     </div>

@@ -26,10 +26,6 @@ export class UserService implements OnInit{
     return this.http.get<User[]>(`${this.JSON_SERVER_URL}/users`);
   }
 
-  getUserById(id: String): Observable<User>{
-    return this.http.get<User>(`${this.JSON_SERVER_URL}/users/${id}`);
-  }
-
   deleteUser(id: String): Observable<User>{
     return this.http.delete<User>(`${this.JSON_SERVER_URL}/users/${id}`);
   }
@@ -41,7 +37,6 @@ export class UserService implements OnInit{
   checkDuplicated(emailControl: FormControl<string | null>): Observable<boolean> {
     return emailControl.valueChanges.pipe(
       debounceTime(300),
-      filter(email => !!email),
       switchMap(email => this.getUsers().pipe(
         map(users => users.some(user => user.email === email))
       )),
@@ -83,12 +78,14 @@ export class UserService implements OnInit{
     )
   }
 
-  login(username: string, password: string){
-    return this.http.get<User[]>(`${this.JSON_SERVER_URL}?username=${username}`).pipe(
+  login(username: string, password: string):  Observable<boolean>{
+    return this.http.get<User[]>(`${this.JSON_SERVER_URL}/users?username=${username}`).pipe(
       map((users) => {
         const check = users.at(0);
         const verifyPass = bcrypt.compareSync(password, check!.password);
         if(verifyPass && check && check.username === username){
+          const checked: ActiveUser = ({id: check.id!, username: check.username})
+          this.saveUserToLocalStorage(checked);
           this.authSignSubject.next({id: check.id!, username: check.username})
           return true
         }else{
@@ -96,5 +93,10 @@ export class UserService implements OnInit{
         }
       })
     )
+  }
+
+  logout(): void {
+    this.authSignSubject.next(null); 
+    this.saveUserToLocalStorage(undefined); 
   }
 }

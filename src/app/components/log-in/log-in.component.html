@@ -1,55 +1,11 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()" class="modal-backdrop" [class.show]="isOpen" (click)="onBackdropClick($event)">
-    <fieldset class="modal-content" role="dialog" aria-modal="true" cdkTrapFocus [cdkTrapFocusAutoCapture]="true">
 
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="modal-backdrop" [class.show]="isOpenL" (click)="onBackdropClick($event)"  cdkTrapFocus [cdkTrapFocusAutoCapture]="true">
+    <fieldset class="modal-content" role="dialog" aria-modal="true">
         <legend>
-            <span class="legend-text">Sign up</span> 
+            <span class="legend-text">Log in</span> 
             <button type="button" class="close-btn" (click)="closeModal()">x</button>
         </legend>
 
-        <section>
-            <label for="email">Email</label>
-            <input type="text" id="email" autocomplete="email" formControlName="email">
-                @if (form.controls['email'].touched) {
-                    @if (form.controls['email'].getError('required')) {
-                        <span>Email field is required</span>
-                    }
-                    @if (form.controls['email'].getError('email')) {
-                         <span>Not a valid email format</span>
-                    }@if (emailDuplicated$ | async){
-                        <span>Email already in use</span>
-                    }
-                }
-        </section>
-        <section>
-            <label for="name">Name</label>
-            <input type="text" id="name" autocomplete="name" formControlName="name">
-                @if (form.controls['name'].touched) {
-                    @if (form.controls['name'].getError('required')) {
-                        <span>This field is required</span>
-                    }
-                    @if (form.controls['name'].getError('minlength')) {
-                        <span>Min 4 characteres</span>
-                    }
-                    @if (form.controls['name'].getError('maxlength')) {
-                        <span>Max 20 characters</span>
-                    }
-                }
-        </section>
-        <section>
-            <label for="lastname">Lastname</label>
-            <input type="text" id="lastname" autocomplete="lastname" formControlName="lastname">
-                @if (form.controls['lastname'].touched) {
-                    @if (form.controls['lastname'].getError('required')) {
-                        <span>This field is required</span>
-                    }
-                    @if (form.controls['lastname'].getError('minlength')) {
-                        <span>Min 2 characteres</span>
-                    }
-                    @if (form.controls['lastname'].getError('maxlength')) {
-                        <span>Max 20 characters</span>
-                    }
-                }
-        </section>
         <section>
             <label for="username">Username</label>
             <input type="text" id="username" autocomplete="username" formControlName="username">
@@ -65,6 +21,7 @@
                     }
                 }
         </section>
+
         <section>
             <label for="password">Password</label>
             <input #password id="password-field" id="password" type="password" formControlName="password">

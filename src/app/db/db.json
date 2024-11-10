@@ -1,44 +1,12 @@
 {
   "users": [
     {
-      "id": "abcb",
+      "id": "71a5",
       "email": "yatel.espasandin@gmail.com",
       "name": "yatel",
       "lastname": "espasandin",
-      "username": "yatelito",
-      "password": "$2a$10$2kJvRmxplGQH1M8x4HAh8eWnL8v/jqdTcEg.a01QKVAliAT7l/Vb."
-    },
-    {
-      "id": "645d",
-      "email": "yatel.espasandin@gmail.com",
-      "name": "Nehuen ",
-      "lastname": "messias",
-      "username": "messias",
-      "password": "$2a$10$GBCTGOU/CVuwcvAS.hKGjejKqXwlZ8mKL9fVchIR8/1iV4wAT6YM2"
-    },
-    {
-      "id": "1c0c",
-      "email": "yatel.espasandin@gmail.com",
-      "name": "yatell",
-      "lastname": "yatelito",
-      "username": "yatelito",
-      "password": "$2a$10$0s6za2t/BRJIEOWDJ2UFuu2dXDoJF35ZFwq2QZeK9zex3Rhi5ExV6"
-    },
-    {
-      "id": "732e",
-      "email": "yatel.espasandin@gmail.com",
-      "name": "el enen",
-      "lastname": "asdasdasda",
-      "username": "sdasdasd",
-      "password": "$2a$10$H1qb2hddQ5vccjt0/RK77uT/tBlPCxIkyUa4fSQwtVroWTa2yIbW2"
-    },
-    {
-      "id": "596e",
-      "email": "yatel.espasandin@gmail.com",
-      "name": "asdasasd",
-      "lastname": "asdasd",
-      "username": "asdasd",
-      "password": "$2a$10$1720x3GeoAUMwgr2Cnlbpu4HxX4jsE9jMb6.jQ942kAiTsOBrm3IW"
+      "username": "testeando",
+      "password": "$2a$10$TrmSrcmN0qtBHbwM/3sOJuODXYLWzENDzSeceIXCK/POIOhGIiPlW"
     }
   ],
   "favorites": [

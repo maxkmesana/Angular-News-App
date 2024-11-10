@@ -3,24 +3,27 @@ import { RouterModule } from '@angular/router';
 import { SingInComponent } from '../../components/sing-in/sing-in.component';
 import { UserService } from '../../services/users.service';
 import { Subscription } from 'rxjs';
+import { LogInComponent } from '../../components/log-in/log-in.component';
 
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [RouterModule, SingInComponent],
+  imports: [RouterModule, SingInComponent, LogInComponent],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
 })
 export class NavComponent implements OnInit{
 
+  userSubscription?: Subscription;
+  authService = inject(UserService);
+  username: string | undefined;
+
   ngOnInit(): void {
     this.userState();
   }
 
-  userSubscription?: Subscription;
-  authService = inject(UserService);
-  isModalOpen: boolean = false;
-  username: string | undefined;
+  isLoginModalOpen: boolean = false;
+  isSigninModalOpen: boolean = false;
 
   userState(){
     this.userSubscription = this.authService.loggedUserId$.subscribe({
@@ -34,11 +37,23 @@ export class NavComponent implements OnInit{
     })
   }
 
-  openModal() {
-    this.isModalOpen = true;
+  openSigninModal() {
+    this.isSigninModalOpen = true;
   }
   
-  closeModal() {
-    this.isModalOpen = false;
+  closeSigninModal() {
+    this.isSigninModalOpen = false;
+  }
+
+  openLoginModal() {
+    this.isLoginModalOpen = true;
+  }
+
+  closeLoginModal() {
+    this.isLoginModalOpen = false;
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }

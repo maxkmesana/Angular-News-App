@@ -14,9 +14,13 @@ export class NewsApiService {
 
   constructor() { }
 
-  // this request is made only for development.
-  // TODO: Decide the specific parameters of the request and whether we should add other requests
-  getMainNews(page: number = 1, pageSize: number = 12): Observable<ApiResponse> {
-    return this.httpNews.get<ApiResponse>(`${this.NEWS_API_URL}?q=software&domains=xataca.com,hipertextual.com&apiKey=${environment.apiKey}&page=${page}&pageSize=${pageSize}`)
+  getMainNewsPageable(page: number = 1, categoria:string = "tecnología", pageSize: number = 12): Observable<ApiResponse> {
+    // CATEGORIAS VALIDAS: "tecnología" (default), "programación", 
+    // "inteligencia artificial", "ciberseguridad", "hardware"
+    return this.httpNews.get<ApiResponse>(`${this.NEWS_API_URL}?q=${categoria}&domains=xataca.com,hipertextual.com&apiKey=${environment.apiKey}&page=${page}&pageSize=${pageSize}`)
+  }
+
+  getMainNews(): Observable<ApiResponse> {
+    return this.httpNews.get<ApiResponse>(`${this.NEWS_API_URL}?q=software&domains=xataca.com,hipertextual.com&apiKey=${environment.apiKey}`)
   }
 }

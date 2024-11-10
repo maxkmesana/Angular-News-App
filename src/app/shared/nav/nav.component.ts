@@ -4,13 +4,14 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [ ],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css',
 })
 export class NavComponent {
   isMenuOpen = false;
-
+  
+  
   // Función para alternar el menú
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;

@@ -2,22 +2,6 @@
   "users": [],
   "favorites": [
     {
-      "id": "69a0",
-      "source": {
-        "id": null,
-        "name": "Hipertextual"
-      },
-      "author": "Gabriel Erard",
-      "title": "Intel y AMD se alían para blindar el futuro de x86",
-      "description": "Intel y AMD han anunciado una alianza como parte de un grupo asesor con el que buscan blindar el futuro de x86. El ente en cuestión, denominado x86 Ecosystem Advisory Group, busca ofrecer compatibilidad entre las plataformas y simplificar el desarrollo de nue…",
-      "url": "http://hipertextual.com/2024/10/aliana-intel-amd-x86",
-      "urlToImage": "https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2024/10/intel-amd-x86-scaled.jpg?fit=2560%2C1440&quality=70&strip=all&ssl=1",
-      "publishedAt": "2024-10-15T19:30:00Z",
-      "content": "Intel y AMD han anunciado una alianza como parte de un grupo asesor con el que buscan blindar el futuro de x86. El ente en cuestión, denominado x86 Ecosystem Advisory Group, busca ofrecer compatibili… [+2105 chars]",
-      "isFavorite": true,
-      "userId": "3"
-    },
-    {
       "id": "9c0e",
       "source": {
         "id": null,
@@ -46,6 +30,38 @@
       "urlToImage": "https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2024/10/mesut-cicen-c0dXPjj0nio-unsplash-scaled.jpg?fit=2560%2C1707&quality=70&strip=all&ssl=1",
       "publishedAt": "2024-10-25T19:50:00Z",
       "content": "Si algo ha quedado claro en los últimos años es que Apple tiene un plan muy ambicioso en el plano de la salud. Esto se ha visto especialmente con el Apple Watch, aunque los esfuerzos también se han e… [+2341 chars]",
+      "isFavorite": true,
+      "userId": "3"
+    },
+    {
+      "id": "c945",
+      "source": {
+        "id": null,
+        "name": "Hipertextual"
+      },
+      "author": "Gabriel Erard",
+      "title": "OpenAI tiene un arma secreta para romper su alianza con Microsoft",
+      "description": "Microsoft ha invertido más de 13.000 millones de dólares en OpenAI, lo que le ha permitido forjar una alianza envidiable con el principal exponente actual de la inteligencia artificial generativa. Sin embargo, un nuevo reporte de The New York Times afirma que…",
+      "url": "http://hipertextual.com/2024/10/openai-arma-secreta-romper-microsoft",
+      "urlToImage": "https://imgs.hipertextual.com/wp-content/uploads/2024/10/Screenshot_2-scaled.jpg",
+      "publishedAt": "2024-10-18T14:02:45Z",
+      "content": "Publicado enEconomía y Empresas\r\nLa relación entre OpenAI y Microsoft se estaría debilitando y Sam Altman tendría un arma secreta para romper el contrato que une a las compañías. \r\nMicrosoft ha inver… [+6149 chars]",
+      "isFavorite": true,
+      "userId": "3"
+    },
+    {
+      "id": "ce47",
+      "source": {
+        "id": null,
+        "name": "Hipertextual"
+      },
+      "author": "Luis Miranda",
+      "title": "Xiaomi anuncia más móviles que se quedan sin HyperOS 2.0",
+      "description": "Xiaomi ha modificado su lista de la muerte con nuevos móviles que perderán el soporte. Como es costumbre cada cierto tiempo, el fabricante chino añade dispositivos que ya cumplieron su tiempo de vida útil y no recibirán más actualizaciones. La mala noticia pa…",
+      "url": "http://hipertextual.com/2024/10/xiaomi-anuncia-moviles-sin-soporte-hyperos-2",
+      "urlToImage": "https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2024/10/xiaomi-redmi-note-11-pro-plus-02.jpg?fit=1920%2C1180&quality=70&strip=all&ssl=1",
+      "publishedAt": "2024-10-25T18:00:00Z",
+      "content": "Xiaomiha modificado su lista de la muerte con nuevos móviles que perderán el soporte. Como es costumbre cada cierto tiempo, el fabricante chino añade dispositivos que ya cumplieron su tiempo de vida … [+1859 chars]",
       "isFavorite": true,
       "userId": "3"
     }

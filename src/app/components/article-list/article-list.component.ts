@@ -23,7 +23,6 @@ export class ArticleListComponent implements OnInit {
   articles: Article[] = [];
   currentPage = 1;
   loading = false;
-  pageSize = 12;
   totalArticles = 0;
   userId: string = '';
   subscription: Subscription;
@@ -37,7 +36,7 @@ export class ArticleListComponent implements OnInit {
 
   ngOnInit(): void {
     this.newsApiService
-      .getMainNews()
+      .getMainNewsPageable()
       .pipe(
         switchMap((response: ApiResponse) =>
           this.favoriteService.markUserFavorites(response.articles, this.userId)
@@ -46,6 +45,7 @@ export class ArticleListComponent implements OnInit {
       .subscribe({
         next: (markedArticles) => {
           this.articles = markedArticles;
+          this.currentPage++;
         },
         error: (error) => console.error('Error loading articles:', error),
       });
@@ -64,6 +64,7 @@ export class ArticleListComponent implements OnInit {
         (document.documentElement.scrollHeight - 200)) {
       this.loadMoreArticles();
     }
+    
   }
   
   loadMoreArticles() {
@@ -71,7 +72,7 @@ export class ArticleListComponent implements OnInit {
     
     this.loading = true;
     this.newsApiService
-      .getMainNews(this.currentPage, this.pageSize)
+      .getMainNewsPageable(this.currentPage)
       .pipe(
         switchMap((response: ApiResponse) => {
           this.totalArticles = response.totalResults;

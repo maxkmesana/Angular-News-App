@@ -46,35 +46,40 @@ export class ArticleListComponent implements OnInit {
   }
 
   loadList() {
-    if(this.currentRoute === null){
-      this.currentRoute = "technology"
+    if (this.currentRoute === null) {
+      this.currentRoute = "technology";
     }
     
     this.newsApiService
       .getMainNewsPageable(this.currentPage, this.currentRoute)
       .pipe(
-        switchMap((response: ApiResponse) =>
-          this.favoriteService.markUserFavorites(response.articles, this.userId)
-        )
+        switchMap((response: ApiResponse) => {
+          const filteredArticles = response.articles.filter(
+            (article: Article) =>
+              !article.title.includes("[Removed]") && article.urlToImage !== null
+          );
+          return this.favoriteService.markUserFavorites(filteredArticles, this.userId);
+        })
       )
       .subscribe({
         next: (markedArticles) => {
           this.articles = markedArticles;
           this.currentPage++;
         },
-        error: (error) => console.error('Error loading articles:', error),
+        error: (error) => console.error("Error loading articles:", error),
       });
+    
   }
 
   
-  onNavigate(title: string) {
-    this.router.navigate([`article/${title}`]);
+  onNavigate(article: Article) {
+    this.newsApiService.setSelectedArticle(article);
+    this.router.navigate([`article/${article.title}`]);
   }
 
 
   @HostListener('window:scroll', ['$event'])
   onScroll(): void {
-    // Check if we're near bottom of page
     if ((window.innerHeight + window.scrollY) >= 
         (document.documentElement.scrollHeight - 200)) {
       this.loadMoreArticles();
@@ -84,28 +89,34 @@ export class ArticleListComponent implements OnInit {
   
   loadMoreArticles() {
     if (this.loading || (this.totalArticles > 0 && this.articles.length >= this.totalArticles)) return;
-    
+  
     this.loading = true;
     this.newsApiService
       .getMainNewsPageable(this.currentPage)
       .pipe(
         switchMap((response: ApiResponse) => {
           this.totalArticles = response.totalResults;
-          // Pass only the new articles to be marked
-          return this.favoriteService.markUserFavorites(response.articles, this.userId)
+        
+          const filteredArticles = response.articles.filter(
+            (article: Article) =>
+              !article.title.includes("[Removed]") && article.urlToImage !== null
+          );
+  
+        
+          return this.favoriteService.markUserFavorites(filteredArticles, this.userId);
         })
       )
       .subscribe({
         next: (markedArticles) => {
-          // Append the new marked articles to the existing array
+          
           this.articles = [...this.articles, ...markedArticles];
           this.currentPage++;
           this.loading = false;
         },
         error: (error) => {
-          console.error('Error loading articles:', error);
+          console.error("Error loading articles:", error);
           this.loading = false;
         }
       });
-  }
+  }  
 }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Article } from '../interfaces/article.interface';
 import { environment } from '../../environments/environment';
 import { ApiResponse } from '../interfaces/response.interface';
@@ -11,8 +11,18 @@ import { ApiResponse } from '../interfaces/response.interface';
 export class NewsApiService {
   private httpNews = inject(HttpClient);
   private NEWS_API_URL: String = "https://newsapi.org/v2/everything"
+  private selectedArticle = new BehaviorSubject<Article | null>(null);
+  selectedArticle$ = this.selectedArticle.asObservable();
 
   constructor() { }
+  
+  setSelectedArticle(article: Article): void {
+      this.selectedArticle.next(article);
+  }
+
+  getSelectedArticle(): Observable<Article | null> {
+      return this.selectedArticle$;
+  }
 
   getMainNewsPageable(page: number = 1, categoria:string = "technology", pageSize: number = 12): Observable<ApiResponse> {
     // CATEGORIAS VALIDAS: "tecnología" (default), "programación", 

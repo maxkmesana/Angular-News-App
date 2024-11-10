@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Article } from '../../interfaces/article.interface';
 import { NewsApiService } from '../../services/news-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -16,16 +16,18 @@ import { ArticleContentComponent } from '../article-content/article-content.comp
   styleUrl: './article-view.component.css',
 })
 export class ArticleViewComponent implements OnInit {
-  article?: Article;
+    newsApiService = inject(NewsApiService);
 
   userId: string = '';
   subscription: Subscription;
+  article$ = this.newsApiService.selectedArticle$;
+  article: Article | null = null;
 
   constructor(
     private userService: UserService,
-    private newsApiService: NewsApiService,
     private route: ActivatedRoute,
     private service: FavoriteService
+    
   ) {
     this.subscription = this.userService.loggedUserId$.subscribe((data) => {
       this.userId = data;
@@ -33,28 +35,32 @@ export class ArticleViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.paramMap.pipe(
-      map(param => param.get('title') ?? ' '),
-      switchMap(title => 
-        this.newsApiService.getMainNews().pipe(
-          map(response => ({
-            title,
-            articles: response.articles
-          }))
-        )
-      )
-    ).subscribe({
-      next: ({title, articles}) => {
-        const foundArticle = articles.find(article => 
-          article.title === title
-        );
-        if (foundArticle) {
-          this.article = foundArticle;
-        } else {
-          console.log('Article not found');  // Handle this case
-        }
-      },
-      error: (error) => console.error('Error:', error)
+    this.newsApiService.selectedArticle$.subscribe(article => {
+      this.article = article;
     });
+
+    // this.route.paramMap.pipe(
+    //   map(param => param.get('title') ?? ' '),
+    //   switchMap(title => 
+    //     this.newsApiService.getMainNews().pipe(
+    //       map(response => ({
+    //         title,
+    //         articles: response.articles
+    //       }))
+    //     )
+    //   )
+    // ).subscribe({
+    //   next: ({title, articles}) => {
+    //     const foundArticle = articles.find(article => 
+    //       article.title === title
+    //     );
+    //     if (foundArticle) {
+    //       this.article = foundArticle;
+    //     } else {
+    //       console.log('Article not found');  // Handle this case
+    //     }
+    //   },
+    //   error: (error) => console.error('Error:', error)
+    // });
 }
 }

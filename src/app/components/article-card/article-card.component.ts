@@ -28,7 +28,7 @@ import { Md5 } from 'ts-md5';
 export class ArticleCardComponent {
   @Input() article!: Article;
   @Input() userId!: string;
-  @Output() navigateEvent = new EventEmitter<string>();
+  @Output() navigateEvent = new EventEmitter<Article>();
   // @Input() favSet!: Set<string | undefined>;
 
   favoriteService: FavoriteService = inject(FavoriteService);
@@ -51,6 +51,6 @@ export class ArticleCardComponent {
     }
   }
   onNavigate() {
-    this.navigateEvent.emit(this.article.title);
+    this.navigateEvent.emit(this.article);
   }
 }

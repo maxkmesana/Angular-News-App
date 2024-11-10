@@ -34,34 +34,18 @@
       "userId": "3"
     },
     {
-      "id": "c945",
+      "id": "a011",
       "source": {
         "id": null,
-        "name": "Hipertextual"
+        "name": "Gizmodo.com"
       },
-      "author": "Gabriel Erard",
-      "title": "OpenAI tiene un arma secreta para romper su alianza con Microsoft",
-      "description": "Microsoft ha invertido más de 13.000 millones de dólares en OpenAI, lo que le ha permitido forjar una alianza envidiable con el principal exponente actual de la inteligencia artificial generativa. Sin embargo, un nuevo reporte de The New York Times afirma que…",
-      "url": "http://hipertextual.com/2024/10/openai-arma-secreta-romper-microsoft",
-      "urlToImage": "https://imgs.hipertextual.com/wp-content/uploads/2024/10/Screenshot_2-scaled.jpg",
-      "publishedAt": "2024-10-18T14:02:45Z",
-      "content": "Publicado enEconomía y Empresas\r\nLa relación entre OpenAI y Microsoft se estaría debilitando y Sam Altman tendría un arma secreta para romper el contrato que une a las compañías. \r\nMicrosoft ha inver… [+6149 chars]",
-      "isFavorite": true,
-      "userId": "3"
-    },
-    {
-      "id": "ce47",
-      "source": {
-        "id": null,
-        "name": "Hipertextual"
-      },
-      "author": "Luis Miranda",
-      "title": "Xiaomi anuncia más móviles que se quedan sin HyperOS 2.0",
-      "description": "Xiaomi ha modificado su lista de la muerte con nuevos móviles que perderán el soporte. Como es costumbre cada cierto tiempo, el fabricante chino añade dispositivos que ya cumplieron su tiempo de vida útil y no recibirán más actualizaciones. La mala noticia pa…",
-      "url": "http://hipertextual.com/2024/10/xiaomi-anuncia-moviles-sin-soporte-hyperos-2",
-      "urlToImage": "https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2024/10/xiaomi-redmi-note-11-pro-plus-02.jpg?fit=1920%2C1180&quality=70&strip=all&ssl=1",
-      "publishedAt": "2024-10-25T18:00:00Z",
-      "content": "Xiaomiha modificado su lista de la muerte con nuevos móviles que perderán el soporte. Como es costumbre cada cierto tiempo, el fabricante chino añade dispositivos que ya cumplieron su tiempo de vida … [+1859 chars]",
+      "author": "Gizmodo Deals",
+      "title": "Apple’s AirTags Are Back In Stock, And Amazon Is Slashing Prices Just Like Last Year’s Black Friday",
+      "description": "It's the ultimate tool for locating your items.",
+      "url": "https://gizmodo.com/apples-airtags-are-back-in-stock-and-amazon-is-slashing-prices-just-like-last-years-black-friday-2000521961",
+      "urlToImage": "https://gizmodo.com/app/uploads/2024/10/airtag-apple.jpg",
+      "publishedAt": "2024-11-08T12:25:10Z",
+      "content": "Picture this: youre rushing out the door, late for an important meeting and in the chaos, you cant find your keys. Or imagine arriving at your vacation destination only to realize your luggage is now… [+2578 chars]",
       "isFavorite": true,
       "userId": "3"
     }

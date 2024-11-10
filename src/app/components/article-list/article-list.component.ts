@@ -6,7 +6,7 @@ import { ApiResponse } from '../../interfaces/response.interface';
 import { FavoriteService } from '../../services/favorites.service';
 import { UserService } from '../../services/users.service';
 import { Subscription, switchMap } from 'rxjs';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-article-list',
@@ -19,9 +19,11 @@ export class ArticleListComponent implements OnInit {
   newsApiService: NewsApiService = inject(NewsApiService);
   favoriteService: FavoriteService = inject(FavoriteService);
   router: Router = inject(Router);
+  activatedRoute = inject(ActivatedRoute);
 
   articles: Article[] = [];
   currentPage = 1;
+  currentRoute: string | null = "";
   loading = false;
   totalArticles = 0;
   userId: string = '';
@@ -35,8 +37,21 @@ export class ArticleListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.activatedRoute.paramMap.subscribe({
+      next: (params) => {
+        this.currentRoute = params.get("category")
+        this.loadList();
+      }
+    })
+  }
+
+  loadList() {
+    if(this.currentRoute === null){
+      this.currentRoute = "technology"
+    }
+    
     this.newsApiService
-      .getMainNewsPageable()
+      .getMainNewsPageable(this.currentPage, this.currentRoute)
       .pipe(
         switchMap((response: ApiResponse) =>
           this.favoriteService.markUserFavorites(response.articles, this.userId)

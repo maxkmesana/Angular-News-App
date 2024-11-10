@@ -1,10 +1,11 @@
 import { Component, HostListener } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CategoryDropdownComponent } from "../../components/dropdown/dropdown.component";
 
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [ ],
+  imports: [CategoryDropdownComponent],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css',
 })

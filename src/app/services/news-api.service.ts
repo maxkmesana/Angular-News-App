@@ -14,10 +14,10 @@ export class NewsApiService {
 
   constructor() { }
 
-  getMainNewsPageable(page: number = 1, categoria:string = "tecnología", pageSize: number = 12): Observable<ApiResponse> {
+  getMainNewsPageable(page: number = 1, categoria:string = "technology", pageSize: number = 12): Observable<ApiResponse> {
     // CATEGORIAS VALIDAS: "tecnología" (default), "programación", 
     // "inteligencia artificial", "ciberseguridad", "hardware"
-    return this.httpNews.get<ApiResponse>(`${this.NEWS_API_URL}?q=${categoria}&domains=xataca.com,hipertextual.com&apiKey=${environment.apiKey}&page=${page}&pageSize=${pageSize}`)
+    return this.httpNews.get<ApiResponse>(`${this.NEWS_API_URL}?q=${categoria}&apiKey=${environment.apiKey}&page=${page}&pageSize=${pageSize}`)
   }
 
   getMainNews(): Observable<ApiResponse> {

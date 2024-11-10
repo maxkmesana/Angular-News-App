@@ -9,6 +9,9 @@ export const routes: Routes = [
       path:"", component: ArticleListPageComponent,
   },
   {
+    path:"category/:category", component: ArticleListPageComponent,
+  },
+  {
       path:"my-news", component: MyNewsPageComponent,
   },
   {

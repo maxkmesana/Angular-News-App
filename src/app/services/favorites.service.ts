@@ -17,8 +17,8 @@ private JSON_SERVER_URL: String = "http://localhost:3000";
 
   // TODO: handle errors within each request
   
-  markUserFavorites(articles: Article[], userId: string): Observable<Article[]> {
-    return this.getFavoritesByUserId(userId).pipe(
+  markUserFavorites(articles: Article[], userId: string | undefined): Observable<Article[]> {
+    return this.getFavoritesByUserId(userId!).pipe(
       map(userFavorites => {
         return articles.map(article => ({
           ...article,
@@ -32,11 +32,11 @@ private JSON_SERVER_URL: String = "http://localhost:3000";
     return this.http.get<Article[]>(`${this.JSON_SERVER_URL}/favorites`);
   }
 
-  getFavoritesByUserId(userId: string): Observable<Article[]> {
+  getFavoritesByUserId(userId: string | undefined): Observable<Article[]> {
     return this.http.get<Article[]>(`${this.JSON_SERVER_URL}/favorites?userId=${userId}`);
   }
 
-  removeFromFavorites(articleUrl: string, userId: string): Observable<void> {
+  removeFromFavorites(articleUrl: string, userId: string | undefined): Observable<void> {
     // First get the specific favorite entry for this user and article
     return this.http.get<Article[]>(`${this.JSON_SERVER_URL}/favorites?userId=${userId}&url=${articleUrl}`)
       .pipe(
@@ -49,7 +49,7 @@ private JSON_SERVER_URL: String = "http://localhost:3000";
       );
   }
 
-  addToFavorites(article: Article, userId: string): Observable<Article> {
+  addToFavorites(article: Article, userId: string | undefined): Observable<Article> {
     return this.http.post<Article>(`${this.JSON_SERVER_URL}/favorites`, {
       ...article,
       userId,

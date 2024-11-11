@@ -1,15 +1,19 @@
-import { Component, HostListener } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Component, inject, OnInit, ViewChild, HostListener } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { SingInComponent } from '../../components/sing-in/sing-in.component';
+import { UserService } from '../../services/users.service';
+import { Subscription } from 'rxjs';
+import { LogInComponent } from '../../components/log-in/log-in.component';
 import { CategoryDropdownComponent } from "../../components/dropdown/dropdown.component";
 
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [CategoryDropdownComponent],
+  imports: [RouterModule, SingInComponent, LogInComponent, CategoryDropdownComponent],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css',
 })
-export class NavComponent {
+export class NavComponent implements OnInit{
   isMenuOpen = false;
   
   
@@ -44,5 +48,47 @@ export class NavComponent {
     if (this.isMenuOpen) {
       this.closeMenu();
     }
+  }
+  userSubscription?: Subscription;
+  authService = inject(UserService);
+  username: string | undefined;
+
+  ngOnInit(): void {
+    this.userState();
+  }
+
+  isLoginModalOpen: boolean = false;
+  isSigninModalOpen: boolean = false;
+
+  userState(){
+    this.userSubscription = this.authService.loggedUserId$.subscribe({
+      next: (user) => {
+        this.username = user?.username;
+      },
+      error: (error) => {
+        console.error('Error fetching user state:', error);
+        this.username = undefined;
+      }
+    })
+  }
+
+  openSigninModal() {
+    this.isSigninModalOpen = true;
+  }
+  
+  closeSigninModal() {
+    this.isSigninModalOpen = false;
+  }
+
+  openLoginModal() {
+    this.isLoginModalOpen = true;
+  }
+
+  closeLoginModal() {
+    this.isLoginModalOpen = false;
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }

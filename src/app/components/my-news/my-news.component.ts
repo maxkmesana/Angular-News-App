@@ -7,6 +7,7 @@ import { NewsApiService } from '../../services/news-api.service';
 import { ApiResponse } from '../../interfaces/response.interface';
 import { FavoriteCardComponent } from "../favorite-card/favorite-card.component";
 import { Subscription } from 'rxjs';
+import { ActiveUser } from '../../interfaces/active-user';
 
 @Component({
   selector: 'app-my-news',
@@ -17,18 +18,13 @@ import { Subscription } from 'rxjs';
 })
 export class MyNewsComponent /*implements OnInit*/ { 
 
-  /* Falta: 
- 1. Que reciba el id del usuario, 
- 2. Manejo de error,
- 3. Escribir la ruta al login en caso de que no este logeado el usuario*/
-
   favoriteService: FavoriteService = inject(FavoriteService);
   newsApiService: NewsApiService = inject(NewsApiService);
   router: Router = inject(Router);
 
   userFavorites: Article[] = [];
  
-  userId: string  = '';
+  userId: ActiveUser | null = null
   subscription: Subscription
 
  constructor(private userService: UserService) {
@@ -43,7 +39,7 @@ export class MyNewsComponent /*implements OnInit*/ {
 }
 
   ngOnInit(): void {
-    this.favoriteService.getFavoritesByUserId(this.userId).subscribe(
+    this.favoriteService.getFavoritesByUserId(this.userId?.id).subscribe(
       {
         next: (data) => {this.userFavorites = data},
         error: (error) => {console.log(error)}
@@ -52,7 +48,7 @@ export class MyNewsComponent /*implements OnInit*/ {
   }
 
   handleOnDelete(urlToDelete: string){
-    this.favoriteService.removeFromFavorites(urlToDelete, this.userId).subscribe({
+    this.favoriteService.removeFromFavorites(urlToDelete, this.userId?.id).subscribe({
       next: () => {this.userFavorites = this.userFavorites.filter(e => e.url !== urlToDelete)},
       error: (error) => console.error('Error removing favorite:', error)
     });

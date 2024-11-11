@@ -8,6 +8,7 @@ import { UserService } from '../../services/users.service';
 import { FavoriteService } from '../../services/favorites.service';
 import { ArticleContentComponent } from '../article-content/article-content.component';
 import { ArticleCardComponent } from "../article-card/article-card.component";
+import { ActiveUser } from '../../interfaces/active-user';
 
 @Component({
   selector: 'app-article-view',
@@ -19,7 +20,7 @@ import { ArticleCardComponent } from "../article-card/article-card.component";
 export class ArticleViewComponent implements OnInit {
     newsApiService = inject(NewsApiService);
 
-  userId: string = '';
+  userId: ActiveUser | null = null
   subscription: Subscription;
   article$ = this.newsApiService.selectedArticle$;
   article: Article | null = null;
@@ -60,7 +61,7 @@ export class ArticleViewComponent implements OnInit {
               category: this.article?.category ?? 'technology'
             }) as Article);
           
-          return this.favoriteService.markUserFavorites(filteredArticles, this.userId);
+          return this.favoriteService.markUserFavorites(filteredArticles, this.userId?.id);
         })
       )
       .subscribe({

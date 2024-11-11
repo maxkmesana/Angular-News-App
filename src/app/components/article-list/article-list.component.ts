@@ -7,6 +7,7 @@ import { FavoriteService } from '../../services/favorites.service';
 import { UserService } from '../../services/users.service';
 import { Subscription, switchMap } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ActiveUser } from '../../interfaces/active-user';
 
 @Component({
   selector: 'app-article-list',
@@ -26,7 +27,7 @@ export class ArticleListComponent implements OnInit {
   currentRoute: string | null = "";
   loading = false;
   totalArticles = 0;
-  userId: string = '';
+  userId: ActiveUser | null = null;
   subscription: Subscription;
 
 
@@ -63,7 +64,7 @@ export class ArticleListComponent implements OnInit {
               category: category
             }));
   
-          return this.favoriteService.markUserFavorites(filteredArticles, this.userId);
+          return this.favoriteService.markUserFavorites(filteredArticles, this.userId?.id);
         })
       )
       .subscribe({
@@ -110,7 +111,7 @@ export class ArticleListComponent implements OnInit {
               category: category 
             }));
   
-          return this.favoriteService.markUserFavorites(filteredArticles, this.userId);
+          return this.favoriteService.markUserFavorites(filteredArticles, this.userId?.id);
         })
       )
       .subscribe({

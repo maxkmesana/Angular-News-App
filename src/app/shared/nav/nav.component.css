@@ -203,9 +203,30 @@ a {
     width: 100%;
     height: 100%;
     z-index: 998;
-  }
+  } 
+}
 
-  
+.button-container {
+  white-space: nowrap; 
+  display: inline-flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+button {
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  background-color: transparent;
+  color: #adb5bd;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #333;
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 /* Overlay para cuando el menú está abierto */

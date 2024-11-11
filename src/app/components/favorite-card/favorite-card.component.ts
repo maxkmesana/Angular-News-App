@@ -4,6 +4,7 @@ import { FavoriteService } from '../../services/favorites.service';
 import { Subscription } from 'rxjs';
 import { UserService } from '../../services/users.service';
 import { MatIcon } from '@angular/material/icon';
+import { ActiveUser } from '../../interfaces/active-user';
 
 @Component({
   selector: 'app-favorite-card',
@@ -15,7 +16,7 @@ import { MatIcon } from '@angular/material/icon';
 export class FavoriteCardComponent{
   @Input() article!: Article;
   @Output() navigateEvent = new EventEmitter<Article>();
-  @Input() userId!: string;
+  @Input() userId: ActiveUser | null = null
   @Output() deleteEvent = new EventEmitter<string>();
 
   favoriteService: FavoriteService = inject(FavoriteService);
@@ -27,7 +28,7 @@ export class FavoriteCardComponent{
     if (this.article.isFavorite) {
       this.deleteEvent.emit(this.article.url);
     } else {
-      this.favoriteService.addToFavorites(this.article, this.userId).subscribe({
+      this.favoriteService.addToFavorites(this.article, this.userId?.id).subscribe({
         error: (error) => console.error('Error adding favorite:', error)
       });
       this.article.isFavorite = true;

@@ -1,0 +1,99 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="modal-backdrop" [class.show]="isOpen" (click)="onBackdropClick($event)">
+    <fieldset class="modal-content" role="dialog" aria-modal="true" cdkTrapFocus [cdkTrapFocusAutoCapture]="true">
+
+        <div class="legend-container">
+            <span class="legend-text">Sign up</span> 
+            <button type="button" class="close-btn" (click)="closeModal()">x</button>
+        </div>
+
+        <section>
+            <label for="email">Email</label>
+            <input type="text" id="email" autocomplete="email" formControlName="email">
+                @if (form.controls['email'].touched) {
+                    @if (form.controls['email'].getError('required')) {
+                        <span>Email field is required</span>
+                    }
+                    @if (form.controls['email'].getError('email')) {
+                         <span>Not a valid email format</span>
+                    }@if (emailDuplicated$ | async){
+                        <span>Email already in use</span>
+                    }
+                }
+        </section>
+        <section>
+            <label for="name">Name</label>
+            <input type="text" id="name" autocomplete="name" formControlName="name">
+                @if (form.controls['name'].touched) {
+                    @if (form.controls['name'].getError('required')) {
+                        <span>This field is required</span>
+                    }
+                    @if (form.controls['name'].getError('minlength')) {
+                        <span>Min 4 characteres</span>
+                    }
+                    @if (form.controls['name'].getError('maxlength')) {
+                        <span>Max 20 characters</span>
+                    }
+                }
+        </section>
+        <section>
+            <label for="lastname">Lastname</label>
+            <input type="text" id="lastname" autocomplete="lastname" formControlName="lastname">
+                @if (form.controls['lastname'].touched) {
+                    @if (form.controls['lastname'].getError('required')) {
+                        <span>This field is required</span>
+                    }
+                    @if (form.controls['lastname'].getError('minlength')) {
+                        <span>Min 2 characteres</span>
+                    }
+                    @if (form.controls['lastname'].getError('maxlength')) {
+                        <span>Max 20 characters</span>
+                    }
+                }
+        </section>
+        <section>
+            <label for="username">Username</label>
+            <input type="text" id="username" autocomplete="username" formControlName="username">
+                @if (form.controls['username'].touched) {
+                    @if (form.controls['username'].getError('required')) {
+                        <span>This field is required</span>
+                    }
+                    @if (form.controls['username'].getError('minlength')) {
+                        <span>Min 6 characteres</span>
+                    }
+                    @if (form.controls['username'].getError('maxlength')) {
+                        <span>Max 20 characters</span>
+                    }
+                }
+        </section>
+        <section>
+            <label for="password">Password</label>
+            <input #password id="password-field" id="password" type="password" formControlName="password">
+            <button type="button" (click)="onRevealPassword(password)">
+                <svg *ngIf="!passwordVisible" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                    class="eye-icon">
+                    <path
+                        d="M3.53 2.47a.75.75 0 00-1.06 1.06l18 18a.75.75 0 101.06-1.06l-18-18zM22.676 12.553a11.249 11.249 0 01-2.631 4.31l-3.099-3.099a5.25 5.25 0 00-6.71-6.71L7.759 4.577a11.217 11.217 0 014.242-.827c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113z" />
+                </svg>
+                <svg *ngIf="passwordVisible" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                    class="eye-icon">
+                    <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                    <path fill-rule="evenodd"
+                        d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"
+                        clip-rule="evenodd" />
+                </svg>
+            </button>
+            @if (form.controls['password'].touched) {
+                @if (form.controls['password'].getError('required')) {
+                    <span>This field is required</span>
+                }
+                @if (form.controls['password'].getError('minlength')) {
+                    <span>Min 8 characteres</span>
+                }
+                @if (form.controls['password'].getError('pattern')) {
+                    <span>Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character</span>       
+                }
+            }
+        </section>
+        <button type="submit" [disabled]="form.invalid">Submit</button>
+    </fieldset>
+</form>

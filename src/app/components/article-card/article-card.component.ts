@@ -12,6 +12,9 @@ import { MatCardModule } from '@angular/material/card';
 import { Article } from '../../interfaces/article.interface';
 import { MatIcon } from '@angular/material/icon';
 import { FavoriteService } from '../../services/favorites.service';
+import { Subscription } from 'rxjs';
+import { UserService } from '../../services/users.service';
+import { ActiveUser } from '../../interfaces/active-user';
 
 @Component({
   selector: 'app-article-card',
@@ -23,7 +26,7 @@ import { FavoriteService } from '../../services/favorites.service';
 })
 export class ArticleCardComponent{
   @Input() article!: Article;
-  @Input() userId!: string;
+  @Input() userId!: ActiveUser | null;
   @Output() navigateEvent = new EventEmitter<Article>();
   // @Input() favSet!: Set<string | undefined>;
 
@@ -32,15 +35,16 @@ export class ArticleCardComponent{
   constructor() {}
 
   handleFavClick() {
+
     if (this.article.isFavorite) {
       this.favoriteService
-        .removeFromFavorites(this.article.url, this.userId)
+        .removeFromFavorites(this.article.url, this.userId?.id)
         .subscribe({
           error: (error) => console.error('Error removing favorite:', error),
         });
       this.article.isFavorite = false;
     } else {
-      this.favoriteService.addToFavorites(this.article, this.userId).subscribe({
+      this.favoriteService.addToFavorites(this.article, this.userId?.id).subscribe({
         error: (error) => console.error('Error adding favorite:', error),
       });
       this.article.isFavorite = true;

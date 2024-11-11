@@ -6,6 +6,7 @@ import { Article } from '../../interfaces/article.interface';
 import { MatIcon } from '@angular/material/icon';
 import { NewsApiService } from '../../services/news-api.service';
 import { ApiResponse } from '../../interfaces/response.interface';
+import { ActiveUser } from '../../interfaces/active-user';
 
 @Component({
   selector: 'app-article-content',
@@ -19,7 +20,7 @@ export class ArticleContentComponent implements OnInit, OnDestroy {
 
   favoriteService: FavoriteService = inject(FavoriteService);
   newsApiService: NewsApiService = inject(NewsApiService)
-  userId: string = '';
+  userId: ActiveUser | null = null;
   subscription: Subscription;
 
   constructor(private userService: UserService) {
@@ -41,7 +42,7 @@ export class ArticleContentComponent implements OnInit, OnDestroy {
 
   private checkFavoriteStatus(): void {
     // We pass an array with just this single article
-    this.favoriteService.markUserFavorites([this.article], this.userId)
+    this.favoriteService.markUserFavorites([this.article], this.userId?.id)
       .subscribe({
         next: (markedArticles) => {
           if (markedArticles.length > 0) {
@@ -58,12 +59,12 @@ export class ArticleContentComponent implements OnInit, OnDestroy {
 
   handleFavClick() {
     if (this.article.isFavorite) {
-      this.favoriteService.removeFromFavorites(this.article.url, this.userId).subscribe({
+      this.favoriteService.removeFromFavorites(this.article.url, this.userId?.id).subscribe({
         error: (error) => console.error('Error removing favorite:', error)
       });
       this.article.isFavorite = false;
     } else {
-      this.favoriteService.addToFavorites(this.article, this.userId).subscribe({
+      this.favoriteService.addToFavorites(this.article, this.userId?.id).subscribe({
         error: (error) => console.error('Error adding favorite:', error)
       });
       this.article.isFavorite = true;

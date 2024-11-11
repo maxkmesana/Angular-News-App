@@ -1,37 +1,14 @@
 {
-  "users": [],
-  "favorites": [
+  "users": [
     {
-      "id": "7ed0",
-      "source": {
-        "id": null,
-        "name": "Gizmodo.com"
-      },
-      "author": "Lucas Ropek",
-      "title": "Nobody Can Rent Twister, the Last DVD Trapped in Redbox’s Dead Video Business",
-      "description": "Hardware nerds just want to see Bill Paxton and Helen Hunt outrun a tornado. Why isn't that possible?",
-      "url": "https://gizmodo.com/nobody-can-rent-twister-the-last-dvd-trapped-in-redboxs-dead-video-business-2000516681",
-      "urlToImage": "https://gizmodo.com/app/uploads/2024/10/A-person-renting-a-movie-at-a-Redbox-dispenser.jpg",
-      "publishedAt": "2024-10-25T20:30:22Z",
-      "content": "Though Redbox, the DVD vending machine company, is officially dead, the company’s disc-dispensing kiosks are still strewn all over America. The machines still work and there are still hundreds of DVD… [+2411 chars]",
-      "category": "hardware",
-      "isFavorite": true
-    },
-    {
-      "id": "863c",
-      "source": {
-        "id": "the-verge",
-        "name": "The Verge"
-      },
-      "author": "Tom Warren",
-      "title": "Qualcomm cancels its miniature Windows on Arm PC",
-      "description": "Qualcomm has canceled its Snapdragon Dev Kit hardware. The mini PC was supposed to usher in a wave of Windows on Arm apps.",
-      "url": "https://www.theverge.com/2024/10/18/24273366/qualcomm-cancels-snapdragon-dev-kit-mini-windows-on-arm-pc",
-      "urlToImage": "https://cdn.vox-cdn.com/thumbor/1GIbHRx475ov6UWTo0spBoN5mT4=/0x0:1620x1080/1200x628/filters:focal(810x540:811x541)/cdn.vox-cdn.com/uploads/chorus_asset/file/25458276/Snapdragon_Dev_Kit_for_Windows___Front.jpg",
-      "publishedAt": "2024-10-18T09:04:57Z",
-      "content": "Qualcomm cancels its miniature Windows on Arm PC\r\nQualcomm cancels its miniature Windows on Arm PC\r\n / A simple HDMI port may have taken down a key Snapdragon dev kit.\r\nByTom Warren, a senior editor … [+2559 chars]",
-      "category": "hardware",
-      "isFavorite": true
+      "id": "71a5",
+      "email": "yatel.espasandin@gmail.com",
+      "name": "yatel",
+      "lastname": "espasandin",
+      "username": "testeando",
+      "password": "$2a$10$TrmSrcmN0qtBHbwM/3sOJuODXYLWzENDzSeceIXCK/POIOhGIiPlW"
     }
+  ],
+  "favorites": [
   ]
 }

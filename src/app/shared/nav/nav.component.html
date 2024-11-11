@@ -39,6 +39,22 @@
     </div>
   </div>
   <div class="nav-aside-container">
-    <a href="">Login</a>
+    <ul>
+      <li>
+        <div class="button-container">
+          @if(!username){
+            <button (click)="openLoginModal()" class="login-button">Log in</button>
+            <app-log-in [isOpenL]="isLoginModalOpen" (modalClosed)="closeLoginModal()"></app-log-in>
+
+            <button (click)="openSigninModal()" class="singup-button">Sign up</button>
+            <app-sing-in [isOpen]="isSigninModalOpen" (modalClosed)="closeSigninModal()"></app-sing-in>
+            <!--When complete basic functionality we need to make a button y form in case the user already have an account-->
+          }
+          @else{
+            <button (click)="logout()">Logout</button>
+          } 
+        </div>
+      </li>
+    </ul>
   </div>
 </nav>

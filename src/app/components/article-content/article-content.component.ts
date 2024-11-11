@@ -59,6 +59,11 @@ export class ArticleContentComponent implements OnInit, OnDestroy {
   }
 
   handleFavClick() {
+    if(this.userId === null){
+      alert("To bookmark articles you must be logged in.");
+      return;
+    }
+    
     if (this.article.isFavorite) {
       this.favoriteService.removeFromFavorites(this.article.url, this.userId?.id).subscribe({
         error: (error) => console.error('Error removing favorite:', error)

@@ -12,8 +12,6 @@ import { MatCardModule } from '@angular/material/card';
 import { Article } from '../../interfaces/article.interface';
 import { MatIcon } from '@angular/material/icon';
 import { FavoriteService } from '../../services/favorites.service';
-import { Subscription } from 'rxjs';
-import { UserService } from '../../services/users.service';
 import { ActiveUser } from '../../interfaces/active-user';
 
 @Component({

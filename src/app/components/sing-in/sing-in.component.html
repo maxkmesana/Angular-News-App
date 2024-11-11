@@ -90,10 +90,10 @@
                     <span>Min 8 characteres</span>
                 }
                 @if (form.controls['password'].getError('pattern')) {
-                    <span>Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character</span>       
+                    <span>Must have uppercase, lowercase, number, and special character</span>       
                 }
             }
         </section>
-        <button type="submit" [disabled]="form.invalid">Submit</button>
+        <button type="submit" [disabled]="form.invalid || (emailDuplicated$ | async)">Submit</button>
     </fieldset>
 </form>

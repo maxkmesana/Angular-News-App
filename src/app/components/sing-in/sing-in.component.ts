@@ -59,6 +59,7 @@ export class SingInComponent implements OnInit{
 
   onSubmit() {
     const newUser = this.form.getRawValue();
+
     this.authService.singup(newUser).subscribe({
       next: () => {
         alert('Successfull sing up');

@@ -13,7 +13,7 @@
       <h1>{{ article.title }}</h1>
     </div>
     <div class="date">
-      <p>{{ article.publishedAt }}</p>
+      <p>{{ article.publishedAt | date: 'MMM dd, yyyy'}}</p>
     </div>
     <div class="description">
       <p>{{ article.description }}</p>
@@ -23,6 +23,8 @@
     <img src="{{ article.urlToImage }}" alt="{{ article.title }}" />
   </div>
   <div class="content">
-    {{ article.content }}
+    {{ article.content | removeChars}} 
+    <a href="{{article.url}}">Continue reading</a>
   </div>
+
 </div>

@@ -5,13 +5,14 @@ import { UserService } from '../../services/users.service';
 import { Article } from '../../interfaces/article.interface';
 import { MatIcon } from '@angular/material/icon';
 import { NewsApiService } from '../../services/news-api.service';
-import { ApiResponse } from '../../interfaces/response.interface';
 import { ActiveUser } from '../../interfaces/active-user';
+import { CommonModule } from '@angular/common';
+import { RemoveCharsPipe } from '../../custom-pipe/remove-chars.pipe';
 
 @Component({
   selector: 'app-article-content',
   standalone: true,
-  imports: [MatIcon],
+  imports: [MatIcon, CommonModule, RemoveCharsPipe],
   templateUrl: './article-content.component.html',
   styleUrl: './article-content.component.css',
 })

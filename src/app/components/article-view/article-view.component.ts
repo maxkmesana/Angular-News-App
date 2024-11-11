@@ -31,7 +31,7 @@ export class ArticleViewComponent implements OnInit {
     private userService: UserService,
     private route: ActivatedRoute,
     private favoriteService: FavoriteService
-    
+
   ) {
     this.subscription = this.userService.loggedUserId$.subscribe((data) => {
       this.userId = data;
@@ -54,17 +54,17 @@ export class ArticleViewComponent implements OnInit {
       .pipe(
         switchMap((response: ApiResponse) => {
           const filteredArticles = response.articles
-            .filter((article: Article) => 
-              !article.title.includes("[Removed]") && 
+            .filter((article: Article) =>
+              !article.title.includes("[Removed]") &&
               article.urlToImage !== null &&
-              article.url !== this.article?.url 
+              article.url !== this.article?.url
             )
             .slice(0, 3)
             .map(article => ({
               ...article,
               category: this.article?.category ?? 'technology'
             }) as Article);
-          
+
           return this.favoriteService.markUserFavorites(filteredArticles, this.userId?.id);
         })
       )
@@ -73,6 +73,6 @@ export class ArticleViewComponent implements OnInit {
           this.recommendations = markedArticles;
         },
         error: (error) => console.error("Error loading related articles:", error),
-      });    
-}
+      });
+  }
 }

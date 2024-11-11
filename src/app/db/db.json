@@ -19,38 +19,38 @@
   ],
   "favorites": [
     {
-      "id": "fc76",
+      "id": "2f06",
       "source": {
-        "id": null,
-        "name": "Gizmodo.com"
+        "id": "the-verge",
+        "name": "The Verge"
       },
-      "author": "Gizmodo",
-      "title": "First Vacuum in Space: Where Roborock’s Vision Meets the Cosmos",
-      "description": "Sending a vacuum into space not only showcases Roborock's innovative spirit but also redefines the boundaries of what home technology can achieve.",
-      "url": "https://gizmodo.com/first-vacuum-in-space-where-roborocks-vision-meets-the-cosmos-2000510102",
-      "urlToImage": "https://gizmodo.com/app/uploads/2024/10/roborock-s8-maxv-ultra.jpg",
-      "publishedAt": "2024-10-11T14:20:52Z",
-      "content": "Roborock is a pioneer and global leader in smart home robotics and has unveiled in April some new flagship products – the S8 Max Series. These cutting-edge robotic vacuum cleaners represent the pinna… [+3229 chars]",
+      "author": "Chris Welch",
+      "title": "Sonos announces ‘breakthrough’ Arc Ultra soundbar and Sub 4",
+      "description": "The new $999 Sonos Arc Ultra offers even more immersive and more powerful audio than the original Arc thanks to the inclusion of the company’s Sound Motion technology.",
+      "url": "https://www.theverge.com/2024/10/15/24270677/sonos-arc-ultra-soundbar-sub-4-announced",
+      "urlToImage": "https://cdn.vox-cdn.com/thumbor/qgr4DDjVfb0SpLt2FrVdVE9CtUQ=/0x0:2685x1990/1200x628/filters:focal(1343x995:1344x996)/cdn.vox-cdn.com/uploads/chorus_asset/file/25678420/arcultra1.jpg",
+      "publishedAt": "2024-10-15T13:13:14Z",
+      "content": "Sonos announces breakthrough Arc Ultra soundbar and Sub 4\r\nSonos announces breakthrough Arc Ultra soundbar and Sub 4\r\n / The soundbar contains new Sound Motion technology that, according to Sonos, ma… [+2559 chars]",
       "category": "technology",
       "isFavorite": true,
-      "userId": "7449"
+      "userId": "71a5"
     },
     {
-      "id": "b43b",
+      "id": "adf8",
       "source": {
-        "id": null,
-        "name": "Gizmodo.com"
+        "id": "wired",
+        "name": "Wired"
       },
-      "author": "Gizmodo Deals",
-      "title": "Back to Its Prime Day Price (59% Off), The Roborock Q7 Max+ is so Subtle That You’ll Hardly Notice it’s Working",
-      "description": "Combining advanced technology with exceptional convenience.",
-      "url": "https://gizmodo.com/back-to-its-prime-day-price-59-off-the-roborock-q7-max-is-so-subtle-that-youll-hardly-notice-its-working-2000511818",
-      "urlToImage": "https://gizmodo.com/app/uploads/2024/10/roborock-q7max-plus.jpg",
-      "publishedAt": "2024-10-15T12:25:01Z",
-      "content": "The Roborock Q7 Max+ robot vacuum cleaner is currently available at an incredible price of $359 down from its original $869 – which is a staggering 59% discount that matches the Prime Day offer and s… [+2207 chars]",
+      "author": "Henri Robbins",
+      "title": "What Are Hall Effect Sensors and How Do They Work? (2024)",
+      "description": "More and more keyboards and video game controllers employ Hall effect sensors, but what exactly is this technology? We break it down.",
+      "url": "https://www.wired.com/story/what-is-hall-effect/",
+      "urlToImage": "https://media.wired.com/photos/6727e6b5c3d084259b2a931f/191:100/w_1280,c_limit/Hall-Effect-Sensor-Keyboard-Closeup-Reviewer-Photo-SOURCE-Henri-Robbins-(2).jpg",
+      "publishedAt": "2024-11-04T14:00:00Z",
+      "content": "Hall effect sensors are everywhere right now. Keyboards, game controllers, and DIY kits use them for more precise inputs. But with any newly popular device, it can be easy to immediately jump onto th… [+2901 chars]",
       "category": "technology",
       "isFavorite": true,
-      "userId": "7449"
+      "userId": "71a5"
     }
   ]
 }

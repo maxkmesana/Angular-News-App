@@ -69,3 +69,10 @@
   color: #8a8a8a;
   cursor: pointer;
 }
+
+a {
+  margin-left: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  color: rgb(44, 44, 44);
+}

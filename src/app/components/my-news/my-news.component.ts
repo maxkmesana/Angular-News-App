@@ -39,6 +39,7 @@ export class MyNewsComponent /*implements OnInit*/ {
 }
 
   ngOnInit(): void {
+    console.log(this.userId?.id);
     this.favoriteService.getFavoritesByUserId(this.userId?.id).subscribe(
       {
         next: (data) => {this.userFavorites = data},

@@ -12,8 +12,6 @@ import { MatCardModule } from '@angular/material/card';
 import { Article } from '../../interfaces/article.interface';
 import { MatIcon } from '@angular/material/icon';
 import { FavoriteService } from '../../services/favorites.service';
-import { Subscription } from 'rxjs';
-import { UserService } from '../../services/users.service';
 import { ActiveUser } from '../../interfaces/active-user';
 
 @Component({
@@ -35,7 +33,6 @@ export class ArticleCardComponent{
   constructor() {}
 
   handleFavClick() {
-
     if (this.article.isFavorite) {
       this.favoriteService
         .removeFromFavorites(this.article.url, this.userId?.id)

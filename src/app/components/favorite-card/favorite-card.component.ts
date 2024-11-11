@@ -14,7 +14,7 @@ import { MatIcon } from '@angular/material/icon';
 })
 export class FavoriteCardComponent{
   @Input() article!: Article;
-  @Output() navigateEvent = new EventEmitter<string>();
+  @Output() navigateEvent = new EventEmitter<Article>();
   @Input() userId!: string;
   @Output() deleteEvent = new EventEmitter<string>();
 
@@ -35,6 +35,6 @@ export class FavoriteCardComponent{
   }
 
   onNavigate() {
-    this.navigateEvent.emit(this.article.title);
+    this.navigateEvent.emit(this.article);
   }
 }

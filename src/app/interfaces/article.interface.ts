@@ -13,4 +13,5 @@ export interface Article {
     publishedAt: string;
     content: string;
     isFavorite?: boolean;
+    category: string
 }

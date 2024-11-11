@@ -1,1 +1,16 @@
-<p>dropdown works!</p>
+<li class="dropdown-container" [class.active]="isOpen">
+    <button (click)="toggleDropdown()" class="dropdown-trigger">
+      Categories
+      <div class="arrow-wrapper">
+        <span class="arrow" [class.up]="isOpen">▼</span>
+      </div>
+    </button>
+    
+    <ul class="dropdown-menu" *ngIf="isOpen">
+      <li *ngFor="let category of categories" 
+          (click)="selectCategory(category)"
+          [class.selected]="category.id === selectedCategory?.id">
+        {{ category.name }}
+      </li>
+    </ul>
+  </li>

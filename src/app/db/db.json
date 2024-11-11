@@ -2,100 +2,36 @@
   "users": [],
   "favorites": [
     {
-      "id": "9c0e",
-      "source": {
-        "id": null,
-        "name": "Hipertextual"
-      },
-      "author": "Gabriel Erard",
-      "title": "Samsung lleva One UI a sus televisores con Tizen: estas son sus principales novedades",
-      "description": "Los televisores de Samsung que usan Tizen como sistema operativo han comenzado a actualizarse a One UI. De esta manera, los coreanos pretenden unificar la experiencia de software entre estos dispositivos y otros productos —como sus móviles y tablets— que usan…",
-      "url": "http://hipertextual.com/2024/10/samsung-one-ui-actualizacion-televisores-tizen",
-      "urlToImage": "https://imgs.hipertextual.com/wp-content/uploads/2024/01/samsung-neo-qled-8k-001.jpg",
-      "publishedAt": "2024-10-14T16:12:23Z",
-      "content": "Los televisores de Samsung que usan Tizen como sistema operativo han comenzado a actualizarse a One UI. De esta manera, los coreanos pretenden unificar la experiencia de software entre estos disposit… [+2142 chars]",
-      "isFavorite": true,
-      "userId": "3"
-    },
-    {
-      "id": "aa79",
-      "source": {
-        "id": null,
-        "name": "Hipertextual"
-      },
-      "author": "Gabriel Erard",
-      "title": "Apple prepara nuevas funciones de salud para ayudar a prevenir la diabetes",
-      "description": "Si algo ha quedado claro en los últimos años es que Apple tiene un plan muy ambicioso en el plano de la salud. Esto se ha visto especialmente con el Apple Watch, aunque los esfuerzos también se han expandido a los AirPods y al software que impulsa a sus múlti…",
-      "url": "http://hipertextual.com/2024/10/apple-funciones-salud-prevenir-diabetes",
-      "urlToImage": "https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2024/10/mesut-cicen-c0dXPjj0nio-unsplash-scaled.jpg?fit=2560%2C1707&quality=70&strip=all&ssl=1",
-      "publishedAt": "2024-10-25T19:50:00Z",
-      "content": "Si algo ha quedado claro en los últimos años es que Apple tiene un plan muy ambicioso en el plano de la salud. Esto se ha visto especialmente con el Apple Watch, aunque los esfuerzos también se han e… [+2341 chars]",
-      "isFavorite": true,
-      "userId": "3"
-    },
-    {
-      "id": "a011",
+      "id": "7ed0",
       "source": {
         "id": null,
         "name": "Gizmodo.com"
       },
-      "author": "Gizmodo Deals",
-      "title": "Apple’s AirTags Are Back In Stock, And Amazon Is Slashing Prices Just Like Last Year’s Black Friday",
-      "description": "It's the ultimate tool for locating your items.",
-      "url": "https://gizmodo.com/apples-airtags-are-back-in-stock-and-amazon-is-slashing-prices-just-like-last-years-black-friday-2000521961",
-      "urlToImage": "https://gizmodo.com/app/uploads/2024/10/airtag-apple.jpg",
-      "publishedAt": "2024-11-08T12:25:10Z",
-      "content": "Picture this: youre rushing out the door, late for an important meeting and in the chaos, you cant find your keys. Or imagine arriving at your vacation destination only to realize your luggage is now… [+2578 chars]",
-      "isFavorite": true,
-      "userId": "3"
+      "author": "Lucas Ropek",
+      "title": "Nobody Can Rent Twister, the Last DVD Trapped in Redbox’s Dead Video Business",
+      "description": "Hardware nerds just want to see Bill Paxton and Helen Hunt outrun a tornado. Why isn't that possible?",
+      "url": "https://gizmodo.com/nobody-can-rent-twister-the-last-dvd-trapped-in-redboxs-dead-video-business-2000516681",
+      "urlToImage": "https://gizmodo.com/app/uploads/2024/10/A-person-renting-a-movie-at-a-Redbox-dispenser.jpg",
+      "publishedAt": "2024-10-25T20:30:22Z",
+      "content": "Though Redbox, the DVD vending machine company, is officially dead, the company’s disc-dispensing kiosks are still strewn all over America. The machines still work and there are still hundreds of DVD… [+2411 chars]",
+      "category": "hardware",
+      "isFavorite": true
     },
     {
-      "id": "11c8",
+      "id": "863c",
       "source": {
-        "id": null,
-        "name": "Android Central"
+        "id": "the-verge",
+        "name": "The Verge"
       },
-      "author": "techkritiko@gmail.com (Jay Bonggolto)",
-      "title": "The future of Google's Pixel Watches is looking mighty powerful",
-      "description": "Expect some major hardware upgrades in Pixel Watches from 2026.",
-      "url": "https://www.androidcentral.com/wearables/the-future-of-googles-pixel-watches-is-looking-mighty-powerful",
-      "urlToImage": "https://cdn.mos.cms.futurecdn.net/PqXZpoB9SLWbgwNXTMhvZh-1200-80.jpg",
-      "publishedAt": "2024-10-29T10:57:36Z",
-      "content": "What you need to know\r\n<ul><li>A recent leak suggests Google is working on a custom Tensor chip for future Pixel Watches, set to launch in 2026.</li><li>The upcoming Tensor chip, codenamed NPT, is sa… [+2282 chars]",
-      "isFavorite": true,
-      "userId": "3"
-    },
-    {
-      "id": "9e42",
-      "source": {
-        "id": null,
-        "name": "Qnx.com"
-      },
-      "author": null,
-      "title": "QNX is now free for anything non-commercial, plus there's an RPi image",
-      "description": "QNX offers easy access to QNX software and resources for non-commercial purposes, making innovation more accessible than ever.",
-      "url": "https://blackberry.qnx.com/en/products/qnx-everywhere",
-      "urlToImage": "https://blackberry.qnx.com/etc.clientlibs/bbcom/clientlibs/clientlib-etc-legacy/resources/cylance-web/global/bb-default-thumbnail-social.png",
-      "publishedAt": "2024-11-07T18:35:22Z",
-      "content": "What is the purpose of this initiative?\r\nThis initiative aims to provide engineers and developers with easy access to QNX software and resources for non-commercial use, fostering innovation and skill… [+3001 chars]",
-      "isFavorite": true,
-      "userId": "3"
-    },
-    {
-      "id": "427b",
-      "source": {
-        "id": null,
-        "name": "Gizmodo.com"
-      },
-      "author": "Gizmodo Deals",
-      "title": "Four Days After Prime Day, Amazon Slashes The Price Of AirPods Max To A Record Low",
-      "description": "At less than $400, this Apple headset is an excellent bargain.",
-      "url": "https://gizmodo.com/four-days-after-prime-day-amazon-slashes-the-price-of-airpods-max-to-a-record-low-2000511566",
-      "urlToImage": "https://gizmodo.com/app/uploads/2024/07/airpods-max-apple.jpg",
-      "publishedAt": "2024-10-13T11:15:55Z",
-      "content": "As the autumn leaves begin to fall and the crisp October air settles in, Amazon has decided to extend its Prime Day festivities and offers a great opportunity for audiophiles. This Sunday, a particul… [+2289 chars]",
-      "isFavorite": true,
-      "userId": "3"
+      "author": "Tom Warren",
+      "title": "Qualcomm cancels its miniature Windows on Arm PC",
+      "description": "Qualcomm has canceled its Snapdragon Dev Kit hardware. The mini PC was supposed to usher in a wave of Windows on Arm apps.",
+      "url": "https://www.theverge.com/2024/10/18/24273366/qualcomm-cancels-snapdragon-dev-kit-mini-windows-on-arm-pc",
+      "urlToImage": "https://cdn.vox-cdn.com/thumbor/1GIbHRx475ov6UWTo0spBoN5mT4=/0x0:1620x1080/1200x628/filters:focal(810x540:811x541)/cdn.vox-cdn.com/uploads/chorus_asset/file/25458276/Snapdragon_Dev_Kit_for_Windows___Front.jpg",
+      "publishedAt": "2024-10-18T09:04:57Z",
+      "content": "Qualcomm cancels its miniature Windows on Arm PC\r\nQualcomm cancels its miniature Windows on Arm PC\r\n / A simple HDMI port may have taken down a key Snapdragon dev kit.\r\nByTom Warren, a senior editor … [+2559 chars]",
+      "category": "hardware",
+      "isFavorite": true
     }
   ]
 }

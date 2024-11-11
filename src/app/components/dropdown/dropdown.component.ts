@@ -11,91 +11,9 @@ interface Category {
 @Component({
   selector: 'app-category-dropdown',
   standalone: true,
-  imports: [NgIf, NgForOf],
-  template: `
-    <li class="dropdown-container" [class.active]="isOpen">
-      <button (click)="toggleDropdown()" class="dropdown-trigger">
-        Categories
-        <div class="arrow-wrapper">
-          <span class="arrow" [class.up]="isOpen">▼</span>
-        </div>
-      </button>
-      
-      <ul class="dropdown-menu" *ngIf="isOpen">
-        <li *ngFor="let category of categories" 
-            (click)="selectCategory(category)"
-            [class.selected]="category.id === selectedCategory?.id">
-          {{ category.name }}
-        </li>
-      </ul>
-    </li>
-  `,
-  styles: [`
-    .dropdown-container {
-      position: relative;
-      list-style: none;
-    }
-
-    .dropdown-trigger {
-      background: none;
-      border: none;
-      padding: 0;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: inherit;
-      color: inherit;
-      font-family: inherit;
-    }
-
-    .arrow-wrapper {
-      display: inline-flex;
-      align-items: center;
-      text-decoration: none;
-      pointer-events: none;
-    }
-
-    .arrow {
-      font-size: 0.8em;
-      transition: transform 0.2s ease;
-      margin-top: 2px;
-      display: inline-block;
-      text-decoration: none;
-      pointer-events: none;
-      user-select: none;
-    }
-
-    .arrow.up {
-      transform: rotate(180deg);
-    }
-
-    .dropdown-menu {
-      position: fixed;
-      min-width: 180px;
-      margin-top: 8px;
-      padding: 8px 0;
-      list-style: none;
-      background: #fff;
-      border-radius: 4px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      z-index: 1050;
-    }
-
-    :host {
-      display: block;
-    }
-
-    .dropdown-menu li {
-      padding: 8px 16px;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .dropdown-menu li.selected {
-      background: rgba(0,0,0,0.08);
-    }
-  `]
+  imports: [ NgForOf, NgIf ],
+  templateUrl: './dropdown.component.html',
+  styleUrl: './dropdown.component.css',
 })
 export class CategoryDropdownComponent {
   categories: Category[] = [

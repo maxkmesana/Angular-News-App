@@ -7,11 +7,12 @@ import { map, Subscription, switchMap } from 'rxjs';
 import { UserService } from '../../services/users.service';
 import { FavoriteService } from '../../services/favorites.service';
 import { ArticleContentComponent } from '../article-content/article-content.component';
+import { ArticleCardComponent } from "../article-card/article-card.component";
 
 @Component({
   selector: 'app-article-view',
   standalone: true,
-  imports: [ArticleContentComponent],
+  imports: [ArticleContentComponent, ArticleCardComponent],
   templateUrl: './article-view.component.html',
   styleUrl: './article-view.component.css',
 })
@@ -22,11 +23,12 @@ export class ArticleViewComponent implements OnInit {
   subscription: Subscription;
   article$ = this.newsApiService.selectedArticle$;
   article: Article | null = null;
+  recommendations: Article[] = []
 
   constructor(
     private userService: UserService,
     private route: ActivatedRoute,
-    private service: FavoriteService
+    private favoriteService: FavoriteService
     
   ) {
     this.subscription = this.userService.loggedUserId$.subscribe((data) => {
@@ -37,30 +39,35 @@ export class ArticleViewComponent implements OnInit {
   ngOnInit(): void {
     this.newsApiService.selectedArticle$.subscribe(article => {
       this.article = article;
+      this.loadList();
     });
+  }
 
-    // this.route.paramMap.pipe(
-    //   map(param => param.get('title') ?? ' '),
-    //   switchMap(title => 
-    //     this.newsApiService.getMainNews().pipe(
-    //       map(response => ({
-    //         title,
-    //         articles: response.articles
-    //       }))
-    //     )
-    //   )
-    // ).subscribe({
-    //   next: ({title, articles}) => {
-    //     const foundArticle = articles.find(article => 
-    //       article.title === title
-    //     );
-    //     if (foundArticle) {
-    //       this.article = foundArticle;
-    //     } else {
-    //       console.log('Article not found');  // Handle this case
-    //     }
-    //   },
-    //   error: (error) => console.error('Error:', error)
-    // });
+  loadList() {
+    this.newsApiService
+      .getMainNewsPageable(1, this.article?.category ?? 'technology', 12)
+      .pipe(
+        switchMap((response: ApiResponse) => {
+          const filteredArticles = response.articles
+            .filter((article: Article) => 
+              !article.title.includes("[Removed]") && 
+              article.urlToImage !== null &&
+              article.url !== this.article?.url 
+            )
+            .slice(0, 3)
+            .map(article => ({
+              ...article,
+              category: this.article?.category ?? 'technology'
+            }) as Article);
+          
+          return this.favoriteService.markUserFavorites(filteredArticles, this.userId);
+        })
+      )
+      .subscribe({
+        next: (markedArticles) => {
+          this.recommendations = markedArticles;
+        },
+        error: (error) => console.error("Error loading related articles:", error),
+      });    
 }
 }

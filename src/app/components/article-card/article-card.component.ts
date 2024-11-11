@@ -10,12 +10,8 @@ import {
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { Article } from '../../interfaces/article.interface';
-import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { MatIcon } from '@angular/material/icon';
 import { FavoriteService } from '../../services/favorites.service';
-import { Subscription } from 'rxjs';
-import { UserService } from '../../services/users.service';
-import { Md5 } from 'ts-md5';
 
 @Component({
   selector: 'app-article-card',
@@ -25,7 +21,7 @@ import { Md5 } from 'ts-md5';
   styleUrl: './article-card.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ArticleCardComponent {
+export class ArticleCardComponent{
   @Input() article!: Article;
   @Input() userId!: string;
   @Output() navigateEvent = new EventEmitter<Article>();

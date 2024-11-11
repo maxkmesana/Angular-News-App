@@ -23,6 +23,7 @@ export class MyNewsComponent /*implements OnInit*/ {
  3. Escribir la ruta al login en caso de que no este logeado el usuario*/
 
   favoriteService: FavoriteService = inject(FavoriteService);
+  newsApiService: NewsApiService = inject(NewsApiService);
   router: Router = inject(Router);
 
   userFavorites: Article[] = [];
@@ -36,8 +37,9 @@ export class MyNewsComponent /*implements OnInit*/ {
    });
  }
 
- onNavigate(title: string) {
-  this.router.navigate([`article/${title}`]);
+ onNavigate(article: Article) {
+    this.newsApiService.setSelectedArticle(article);
+    this.router.navigate([`article/${article.title}`]);
 }
 
   ngOnInit(): void {

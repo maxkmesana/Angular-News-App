@@ -47,18 +47,22 @@ export class ArticleListComponent implements OnInit {
 
   loadList() {
     window.scrollTo(0, 0);
-    if (this.currentRoute === null) {
-      this.currentRoute = "technology";
-    }
-    
+    const category = this.currentRoute ?? "technology"; 
+  
     this.newsApiService
-      .getMainNewsPageable(this.currentPage, this.currentRoute)
+      .getMainNewsPageable(this.currentPage, category)
       .pipe(
         switchMap((response: ApiResponse) => {
-          const filteredArticles = response.articles.filter(
-            (article: Article) =>
-              !article.title.includes("[Removed]") && article.urlToImage !== null
-          );
+          const filteredArticles = response.articles
+            .filter(
+              (article: Article) =>
+                !article.title.includes("[Removed]") && article.urlToImage !== null
+            )
+            .map((article: Article) => ({
+              ...article,
+              category: category
+            }));
+  
           return this.favoriteService.markUserFavorites(filteredArticles, this.userId);
         })
       )
@@ -69,9 +73,7 @@ export class ArticleListComponent implements OnInit {
         },
         error: (error) => console.error("Error loading articles:", error),
       });
-    
   }
-
   
   onNavigate(article: Article) {
     this.newsApiService.setSelectedArticle(article);
@@ -89,26 +91,30 @@ export class ArticleListComponent implements OnInit {
   
   loadMoreArticles() {
     if (this.loading || (this.totalArticles > 0 && this.articles.length >= this.totalArticles)) return;
-  
     this.loading = true;
+    const category = this.currentRoute ?? "technology"; 
+  
     this.newsApiService
-      .getMainNewsPageable(this.currentPage)
+      .getMainNewsPageable(this.currentPage, category)
       .pipe(
         switchMap((response: ApiResponse) => {
           this.totalArticles = response.totalResults;
-        
-          const filteredArticles = response.articles.filter(
-            (article: Article) =>
-              !article.title.includes("[Removed]") && article.urlToImage !== null
-          );
   
-        
+          const filteredArticles = response.articles
+            .filter(
+              (article: Article) =>
+                !article.title.includes("[Removed]") && article.urlToImage !== null
+            )
+            .map((article: Article) => ({
+              ...article,
+              category: category 
+            }));
+  
           return this.favoriteService.markUserFavorites(filteredArticles, this.userId);
         })
       )
       .subscribe({
         next: (markedArticles) => {
-          
           this.articles = [...this.articles, ...markedArticles];
           this.currentPage++;
           this.loading = false;
@@ -118,5 +124,6 @@ export class ArticleListComponent implements OnInit {
           this.loading = false;
         }
       });
-  }  
+  }
+    
 }

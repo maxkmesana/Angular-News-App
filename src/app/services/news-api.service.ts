@@ -25,8 +25,6 @@ export class NewsApiService {
   }
 
   getMainNewsPageable(page: number = 1, categoria:string = "technology", pageSize: number = 12): Observable<ApiResponse> {
-    // CATEGORIAS VALIDAS: "tecnología" (default), "programación", 
-    // "inteligencia artificial", "ciberseguridad", "hardware"
     return this.httpNews.get<ApiResponse>(`${this.NEWS_API_URL}?q=${categoria}&apiKey=${environment.apiKey}&page=${page}&pageSize=${pageSize}`)
   }
 

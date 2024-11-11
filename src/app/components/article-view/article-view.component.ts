@@ -3,7 +3,7 @@ import { Article } from '../../interfaces/article.interface';
 import { NewsApiService } from '../../services/news-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiResponse } from '../../interfaces/response.interface';
-import { map, Subscription, switchMap } from 'rxjs';
+import { Subscription, switchMap } from 'rxjs';
 import { UserService } from '../../services/users.service';
 import { FavoriteService } from '../../services/favorites.service';
 import { ArticleContentComponent } from '../article-content/article-content.component';
@@ -18,7 +18,8 @@ import { ActiveUser } from '../../interfaces/active-user';
   styleUrl: './article-view.component.css',
 })
 export class ArticleViewComponent implements OnInit {
-    newsApiService = inject(NewsApiService);
+  newsApiService = inject(NewsApiService);
+  router = inject(Router);
 
   userId: ActiveUser | null = null
   subscription: Subscription;
@@ -40,6 +41,9 @@ export class ArticleViewComponent implements OnInit {
   ngOnInit(): void {
     this.newsApiService.selectedArticle$.subscribe(article => {
       this.article = article;
+      if(this.article === null){
+        this.router.navigate([""]);
+      }
       this.loadList();
     });
   }

@@ -35,6 +35,10 @@ export class ArticleCardComponent{
   constructor() {}
 
   handleFavClick() {
+    if(this.userId === null){
+      alert("To bookmark articles you must be logged in.");
+      return;
+    }
 
     if (this.article.isFavorite) {
       this.favoriteService

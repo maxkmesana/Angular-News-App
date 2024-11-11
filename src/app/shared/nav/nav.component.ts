@@ -1,5 +1,5 @@
 import { Component, inject, OnInit, ViewChild, HostListener } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { SingInComponent } from '../../components/sing-in/sing-in.component';
 import { UserService } from '../../services/users.service';
 import { Subscription } from 'rxjs';
@@ -15,6 +15,7 @@ import { CategoryDropdownComponent } from "../../components/dropdown/dropdown.co
 })
 export class NavComponent implements OnInit{
   isMenuOpen = false;
+  router = inject(Router)
   
   
   // Función para alternar el menú
@@ -90,5 +91,6 @@ export class NavComponent implements OnInit{
 
   logout() {
     this.authService.logout();
+    this.router.navigate([""])
   }
 }

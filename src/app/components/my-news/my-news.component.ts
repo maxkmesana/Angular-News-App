@@ -39,6 +39,11 @@ export class MyNewsComponent /*implements OnInit*/ {
 }
 
   ngOnInit(): void {
+    if(this.userId === null){
+      alert("To view your bookmarked news you must be logged in.");
+      this.router.navigate([""]);
+      return;
+     }
     this.favoriteService.getFavoritesByUserId(this.userId?.id).subscribe(
       {
         next: (data) => {this.userFavorites = data},

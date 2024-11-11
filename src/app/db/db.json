@@ -7,8 +7,50 @@
       "lastname": "espasandin",
       "username": "testeando",
       "password": "$2a$10$TrmSrcmN0qtBHbwM/3sOJuODXYLWzENDzSeceIXCK/POIOhGIiPlW"
+    },
+    {
+      "id": "7449",
+      "email": "mats@gmail.com",
+      "name": "mats",
+      "lastname": "cam",
+      "username": "mats123",
+      "password": "$2a$10$qn2WJFhMCmGc7.IabXaKJOkYxUftKapflq/8gu.uktORBH1PUcnle"
     }
   ],
   "favorites": [
+    {
+      "id": "fc76",
+      "source": {
+        "id": null,
+        "name": "Gizmodo.com"
+      },
+      "author": "Gizmodo",
+      "title": "First Vacuum in Space: Where Roborock’s Vision Meets the Cosmos",
+      "description": "Sending a vacuum into space not only showcases Roborock's innovative spirit but also redefines the boundaries of what home technology can achieve.",
+      "url": "https://gizmodo.com/first-vacuum-in-space-where-roborocks-vision-meets-the-cosmos-2000510102",
+      "urlToImage": "https://gizmodo.com/app/uploads/2024/10/roborock-s8-maxv-ultra.jpg",
+      "publishedAt": "2024-10-11T14:20:52Z",
+      "content": "Roborock is a pioneer and global leader in smart home robotics and has unveiled in April some new flagship products – the S8 Max Series. These cutting-edge robotic vacuum cleaners represent the pinna… [+3229 chars]",
+      "category": "technology",
+      "isFavorite": true,
+      "userId": "7449"
+    },
+    {
+      "id": "b43b",
+      "source": {
+        "id": null,
+        "name": "Gizmodo.com"
+      },
+      "author": "Gizmodo Deals",
+      "title": "Back to Its Prime Day Price (59% Off), The Roborock Q7 Max+ is so Subtle That You’ll Hardly Notice it’s Working",
+      "description": "Combining advanced technology with exceptional convenience.",
+      "url": "https://gizmodo.com/back-to-its-prime-day-price-59-off-the-roborock-q7-max-is-so-subtle-that-youll-hardly-notice-its-working-2000511818",
+      "urlToImage": "https://gizmodo.com/app/uploads/2024/10/roborock-q7max-plus.jpg",
+      "publishedAt": "2024-10-15T12:25:01Z",
+      "content": "The Roborock Q7 Max+ robot vacuum cleaner is currently available at an incredible price of $359 down from its original $869 – which is a staggering 59% discount that matches the Prime Day offer and s… [+2207 chars]",
+      "category": "technology",
+      "isFavorite": true,
+      "userId": "7449"
+    }
   ]
 }

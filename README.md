@@ -1,6 +1,6 @@
 # Tech News
 
-Proyecto realizado en Angular para la materia Laboratoria IV de la Universidad Tecnologica Nacional sede Mar del Plata.
+Proyecto realizado en Angular para la materia Laboratorio IV de la Universidad Tecnologica Nacional sede Mar del Plata.
 La web refleja noticias las cuales son traidas con New's API filtradas a noticias del campo de la tecnologia.
 
 ## Requisitos de inicializacion
@@ -14,5 +14,5 @@ La web refleja noticias las cuales son traidas con New's API filtradas a noticia
 ## Authors
 
 - [@maxkmesana](https://github.com/maxkmesana) - Camesana Maximo Aleassandro
-- [@tinaurquiza](https://github.com/tinaurquiza) - Urquiza Valentina
+- [@tinaurquiza](https://github.com/valentinaurquiza) - Urquiza Valentina
 - [@yatel-espasandin](https://github.com/yatel-espasandin) - Espasandin Yatel Nehuen

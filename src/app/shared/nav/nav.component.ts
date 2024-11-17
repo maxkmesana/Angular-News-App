@@ -49,6 +49,7 @@ export class NavComponent implements OnInit{
       this.closeMenu();
     }
   }
+  
   userSubscription?: Subscription;
   authService = inject(UserService);
   username: string | undefined;

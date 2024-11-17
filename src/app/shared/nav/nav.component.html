@@ -41,7 +41,7 @@
   <div class="nav-aside-container">
     <ul>
       <li>
-        <div class="button-container">
+        <div class="log-button-container">
           @if(!username){
             <button (click)="openLoginModal()" class="login-button">Log in</button>
             <app-log-in [isOpenL]="isLoginModalOpen" (modalClosed)="closeLoginModal()"></app-log-in>

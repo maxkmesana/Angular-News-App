@@ -28,3 +28,9 @@
   </div>
 
 </div>
+
+<app-error-modal
+  [isOpen]="false"
+  [message]="'To bookmark articles you must be logged in.'"
+  (modalClosed)="onModalClosed()">
+</app-error-modal>

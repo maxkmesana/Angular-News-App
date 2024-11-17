@@ -49,3 +49,9 @@
         <button type="submit" [disabled]="form.invalid">Submit</button>
     </fieldset>
 </form>
+
+<app-error-modal
+  [isOpen]="false"
+  [message]="'Oops! Server error. Please try again.'"
+  (modalClosed)="onErrorModalClosed()">
+</app-error-modal>

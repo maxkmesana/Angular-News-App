@@ -206,7 +206,7 @@ a {
   } 
 }
 
-.button-container {
+.log-button-container {
   white-space: nowrap; 
   display: inline-flex;
   align-items: center;

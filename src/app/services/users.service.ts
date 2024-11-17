@@ -9,10 +9,7 @@ import * as bcrypt from 'bcryptjs';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService implements OnInit{
-
-  ngOnInit(): void {
-  }
+export class UserService{
 
   private http = inject(HttpClient);
   private JSON_SERVER_URL: String = "http://localhost:3000";  
@@ -64,7 +61,7 @@ export class UserService implements OnInit{
 
   singup(user: User): Observable<boolean> {
     const hashedPass = this.hashPassword(user.password);
-    user.password = hashedPass; // Client side password hashing is never used, the client sent plane text password and it's hashed in server, anyways dont have one
+    user.password = hashedPass; // Client side password hashing it's never used, client sent plane text password and it's hashed in server, anyways dont have one
     return this.http.post<User>(`${this.JSON_SERVER_URL}/users` ,user).pipe(
       map(({ id, username }) => {
         if(id){

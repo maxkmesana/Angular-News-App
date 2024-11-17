@@ -3,6 +3,7 @@ import { ArticleCardComponent } from './components/article-card/article-card.com
 import { ArticleListPageComponent } from './pages/article-list-page/article-list-page.component';
 import { MyNewsPageComponent } from './pages/my-news-page/my-news-page.component';
 import { ArticlePageComponent } from './pages/article-page/article-page.component';
+import { authGuardFn } from './guard/auth.guard';
 import { ErrorModalComponent } from './components/error-modal/error-modal.component';
 
 export const routes: Routes = [
@@ -14,6 +15,7 @@ export const routes: Routes = [
   },
   {
       path:"my-news", component: MyNewsPageComponent,
+      canActivate: [authGuardFn]
   },
   {
     path: 'article/:title',

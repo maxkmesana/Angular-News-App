@@ -23,11 +23,15 @@
   <div class="menu-container" [class.active]="isMenuOpen">
     <div class="link-container">
       <ul class="navbar-links">
-        <!-- <li>
-          <a href="">Trends</a>
-        </li> -->
         <li>
-          <a href="my-news">My News</a>
+          <a (click)="handleMyNewsClick($event)" class="click-modal-error">My News</a>
+          @if (showErrorModal) {
+            <app-error-modal
+              [isOpen]="true"
+              [message]="'Please log in or sign up to access your news'"
+              (modalClosed)="onErrorModalClosed()">
+            </app-error-modal>
+          }
         </li>
         <li>
           <app-category-dropdown />

@@ -229,4 +229,7 @@ button:hover {
   border-color: rgba(255, 255, 255, 0.3);
 }
 
+.click-modal-error{
+  cursor: pointer;
+}
 /* Overlay para cuando el menú está abierto */

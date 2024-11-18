@@ -12,19 +12,16 @@ import { ErrorModalComponent } from '../error-modal/error-modal.component';
   templateUrl: './log-in.component.html',
   styleUrl: './log-in.component.css'
 })
-export class LogInComponent implements OnInit{
+export class LogInComponent{
  
   @Output() modalClosed = new EventEmitter<void>;
   @Input() isOpenL: boolean = false;
-
+  @ViewChild(ErrorModalComponent) errorModal!: ErrorModalComponent;
+  
   passwordVisible: boolean = false;
   fb = inject(FormBuilder);
   authService = inject(UserService);
-  @ViewChild(ErrorModalComponent) errorModal!: ErrorModalComponent;
 
-  ngOnInit(): void {
-    
-  }
 
   constructor() {
     document.addEventListener('keydown', (e) => {

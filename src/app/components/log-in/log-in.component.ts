@@ -1,28 +1,27 @@
-import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { UserService } from '../../services/users.service';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { A11yModule } from '@angular/cdk/a11y';
 import { NgIf } from '@angular/common';
+import { ErrorModalComponent } from '../error-modal/error-modal.component';
 
 @Component({
   selector: 'app-log-in',
   standalone: true,
-  imports: [ReactiveFormsModule, A11yModule, NgIf],
+  imports: [ReactiveFormsModule, A11yModule, NgIf, ErrorModalComponent],
   templateUrl: './log-in.component.html',
   styleUrl: './log-in.component.css'
 })
-export class LogInComponent implements OnInit{
+export class LogInComponent{
  
   @Output() modalClosed = new EventEmitter<void>;
   @Input() isOpenL: boolean = false;
-
+  @ViewChild(ErrorModalComponent) errorModal!: ErrorModalComponent;
+  
   passwordVisible: boolean = false;
   fb = inject(FormBuilder);
   authService = inject(UserService);
 
-  ngOnInit(): void {
-    
-  }
 
   constructor() {
     document.addEventListener('keydown', (e) => {
@@ -46,7 +45,7 @@ export class LogInComponent implements OnInit{
       },
       error: (error) => {
         if(error === 500){
-          alert('Server error')
+          this.errorModal.openModal();
         }
       }
     })
@@ -85,5 +84,9 @@ export class LogInComponent implements OnInit{
     if (e.key === 'Escape' && this.isOpenL) { 
       this.closeModal();
     }
+  }
+
+  onErrorModalClosed(){
+    this.errorModal.closeModal();
   }
 }

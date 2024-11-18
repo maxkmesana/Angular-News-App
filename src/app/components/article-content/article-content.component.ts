@@ -1,4 +1,4 @@
-import { Component, inject, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FavoriteService } from '../../services/favorites.service';
 import { Subscription, switchMap } from 'rxjs';
 import { UserService } from '../../services/users.service';
@@ -8,11 +8,12 @@ import { NewsApiService } from '../../services/news-api.service';
 import { ActiveUser } from '../../interfaces/active-user';
 import { CommonModule } from '@angular/common';
 import { RemoveCharsPipe } from '../../custom-pipe/remove-chars.pipe';
+import { ErrorModalComponent } from '../error-modal/error-modal.component';
 
 @Component({
   selector: 'app-article-content',
   standalone: true,
-  imports: [MatIcon, CommonModule, RemoveCharsPipe],
+  imports: [MatIcon, CommonModule, RemoveCharsPipe, ErrorModalComponent],
   templateUrl: './article-content.component.html',
   styleUrl: './article-content.component.css',
 })
@@ -23,6 +24,7 @@ export class ArticleContentComponent implements OnInit, OnDestroy {
   newsApiService: NewsApiService = inject(NewsApiService)
   userId: ActiveUser | null = null;
   subscription: Subscription;
+  @ViewChild(ErrorModalComponent) errorModal!: ErrorModalComponent;
 
   constructor(private userService: UserService) {
     this.subscription = this.userService.loggedUserId$.subscribe((data) => {
@@ -60,7 +62,7 @@ export class ArticleContentComponent implements OnInit, OnDestroy {
 
   handleFavClick() {
     if(this.userId === null){
-      alert("To bookmark articles you must be logged in.");
+      this.errorModal.openModal();
       return;
     }
     
@@ -75,5 +77,9 @@ export class ArticleContentComponent implements OnInit, OnDestroy {
       });
       this.article.isFavorite = true;
     }
+  }
+
+  onModalClosed(){
+    this.errorModal.closeModal();
   }
 }

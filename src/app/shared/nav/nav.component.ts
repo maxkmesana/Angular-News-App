@@ -1,23 +1,27 @@
-import { Component, inject, OnInit, ViewChild, HostListener } from '@angular/core';
+import { Component, inject, OnInit, ViewChild, HostListener, viewChild } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { SingInComponent } from '../../components/sing-in/sing-in.component';
 import { UserService } from '../../services/users.service';
-import { Subscription } from 'rxjs';
+import { Subscription, take } from 'rxjs';
 import { LogInComponent } from '../../components/log-in/log-in.component';
 import { CategoryDropdownComponent } from "../../components/dropdown/dropdown.component";
+import { ErrorModalComponent } from '../../components/error-modal/error-modal.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [RouterModule, SingInComponent, LogInComponent, CategoryDropdownComponent],
+  imports: [RouterModule, SingInComponent, LogInComponent, CategoryDropdownComponent, ErrorModalComponent, CommonModule],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css',
 })
 export class NavComponent implements OnInit{
+
   isMenuOpen = false;
   router = inject(Router)
-  
-  
+  logService = inject(UserService)
+  showErrorModal = false;
+
   // Función para alternar el menú
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
@@ -50,6 +54,7 @@ export class NavComponent implements OnInit{
       this.closeMenu();
     }
   }
+  
   userSubscription?: Subscription;
   authService = inject(UserService);
   username: string | undefined;
@@ -92,5 +97,23 @@ export class NavComponent implements OnInit{
   logout() {
     this.authService.logout();
     this.router.navigate([""])
+  }
+
+  handleMyNewsClick(event: Event): void {
+    event.preventDefault(); 
+    // (take) RxJS method here to unsuscribe after de first emision, preventing memory leaks
+    this.logService.loggedUserId$.pipe(take(1)).subscribe({
+      next: (userId) => {
+        if (userId) {
+          this.router.navigate(['/my-news']);
+        } else {
+          this.showErrorModal = true;
+        }
+      }
+    });
+  }
+
+  onErrorModalClosed(){
+    this.showErrorModal = false;
   }
 }
